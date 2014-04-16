@@ -1,0 +1,106 @@
+<div class="background">
+  <div class="container">
+    <div class="app">
+      <div class="top">
+        <h2>{{ user.name }}'s Smart Feed</h2>
+      
+        <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
+         &nbsp; 
+        <button class="btn btn-danger" ng-click="logout()" ng-disabled="!user">Logout</button>
+         &nbsp;
+        <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
+        <button class="btn btn-success" ng-click="getLinkedInFeed()">Get Linkedin</button>
+        &nbsp;
+        <button class="btn btn-success" ng-click="filtervar=''" >Show Smart Feed</button>
+         &nbsp;
+        <button class="btn btn-success" ng-click="filtervar='facebook.com'" >Show only Facebook</button>
+         &nbsp;
+        <button class="btn btn-success" ng-click="filtervar='twitter.com'">Show only Twitter</button>
+      
+        <h4>
+          Hello, <span ng-show="user.name">{{ user.name }}</span>!
+        </h4>
+      </div>
+      <div class='smartfeed' ng-if='Smart.feed'>
+        <div class="post" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:filtervar" ng-if="post">
+          <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
+            <div ng-if="post.retweeted_status">
+              <div class='context'>
+                <div class='retweet-icon'>
+                </div>
+                <div class='twitt-profile-pic' ng-if="post.retweeted_status.user.profile_image_url">
+                  <center><img class='img-rounded profile-image' ng-src="{{post.retweeted_status.user.profile_image_url}}"></center>
+                </div>
+              </div>
+
+              <div class='content'>
+                <div class='retweet-body'>
+                  <p class='retweet muted'><small>Retweeted by: {{post.user.name}} <a ng-href="//www.twitter.com/{{post.user.screen_name}}">@{{post.user.screen_name}}</a></small></p>
+                </div>
+                <div class='tweet-body'>
+                  <p class='item-header'><strong>{{post.retweeted_status.user.name}}</strong> <a ng-href="//www.twitter.com/{{post.retweeted_status.screen_name}}">@{{post.retweeted_status.user.screen_name}}</a></p>
+
+                  <div ng-if="post.retweeted_status.text">
+                    {{ post.retweeted_status.text }}
+                  </div>
+
+                  <div ng-if="post.retweeted_status.entities.media[0]">
+                    <img ng-src="{{post.retweeted_status.entities.media[0].media_url}}">
+                  </div>
+
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </div>
+              </div>
+            </div>
+
+            <div ng-if="post.axihubprovider=='twitter.com' && !post.retweeted_status">
+              <div class="context">
+                <div class='twitt-profile-pic' ng-if="post.user.profile_image_url">
+                  <center><img class='img-rounded profile-image' ng-src="{{post.user.profile_image_url}}"></center>
+                </div>
+              </div>
+
+              <div class="content">
+                <div class='tweet-body'>
+                  <p class='item-header'><strong>{{post.user.name}}</strong> <a class='user-link' ng-href="//www.twitter.com/{{post.user.screen_name}}">@{{post.user.screen_name}}</a></p>
+                  
+                   <div ng-if="post.text">
+                    <p class="tweet-text">{{ post.text }}</p>
+                  </div>
+
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
+            <div class='context'>
+              <center><img class='img-rounded profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'></center>
+            </div>
+
+            <div class='content'>
+              <div class='facebook-poster'>
+                <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
+              </div>
+
+              <div ng-if="post">
+                <a ng-href="{{ post.link }}"><img ng-src="{{ post.picture }}"></a>
+              </div>
+
+              <div ng-if="post.message">
+                <p class='facebook-message'>{{ post.message }}</p>
+              </div>
+
+              <footer ng-if="post.updated_time">
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+              </footer>
+            </div>
+          </div>
+          <div class="post-divider"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

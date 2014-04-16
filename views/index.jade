@@ -1,0 +1,28 @@
+!!! 5
+html
+  head
+    title= 'Axihub'
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='/css/bootstrap.min.css', rel='stylesheet', media='screen')
+    link(href='/css/home.css', rel='stylesheet')
+  body
+  h1.title 
+    div.title Axihub
+
+  .container
+    h2
+      strong All your feeds - together
+    h3 What you need Always On-Top!
+    br
+    a(href="/auth/facebook") 
+      img(src='/img/loginfacebook.png', width='200' )
+    br
+    a(href="/auth/twitter")
+      img(src='/img/logintwitter.png', width='200' )
+    //- br
+    //- a(href="/auth/github") Login via Github
+    //- br
+    //- a(href="/auth/Google") Login via Google
+
+  script(src='http://code.jquery.com/jquery.js')
+  script(src='js/bootstrap.min.js')

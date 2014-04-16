@@ -1,0 +1,22 @@
+<link href="/css/home.css" rel="stylesheet">
+<h1 class="title">
+	<div class="title">Axihub</div>
+</h1>
+
+
+<div class="container">
+	<h4>{{ user.name }}'s accounts</h3>
+
+	<div class='accounts' ng-repeat="account in user.accounts">
+		<strong>{{ account.provider }}</strong>: {{ account.name }}
+	</div>
+	<br>
+	<div class='networks' ng-repeat="network in collection = (user.accounts | accountFilter)">
+		<a ng-href="{{ stripdotCom(network) }}" target="_self"><!-- <img ng-src='/img/connect{{network}}.png'> -->connect to {{network}}</a>
+	</div>
+
+	<div class='nonetworks' ng-if="!collection.length">
+		You are connected to all available networks.<br>
+		We will be adding more soon!
+	</div>
+</div>
