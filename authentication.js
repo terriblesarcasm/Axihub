@@ -37,7 +37,7 @@ passport.use('facebook-authz', new FacebookStrategy({
 ));
 
 
-module.exports = passport.use(new LinkedInStrategy({
+passport.use(new LinkedInStrategy({
     consumerKey: config.linkedin.consumerKey,
     consumerSecret: config.linkedin.consumerSecret,
     callbackURL: config.linkedin.callbackURL
