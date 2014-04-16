@@ -27,7 +27,7 @@
     "passport-instagram": "~0.1.2",
     "passport-linkedin-oauth2": "~1.1.1",
     "node-twitter-api": "~1.1.4",
-    "query": "~0.2.0",
+    "request": "~2.34.0",
     
     "mocha": "~1.14.0",
     "should": "~2.0.2",
