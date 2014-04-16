@@ -12,9 +12,9 @@ var twitterAPI = require('node-twitter-api');
 var request = require('request');
 
 var twitter = new twitterAPI({
-  consumerKey: 'VIztYLnVYnBIBovkLuv1g',
-  consumerSecret: '6JKJoAKb09lL5zI4wqVvMvyKIRp7xllzofTGdZHqs',
-  callback: 'http://joebarreca.com:3000/auth/twitter/callback'
+  consumerKey: config.twitter.consumerKey,
+  consumerSecret: config.twitter.consumerSecret,
+  callback: config.twitter.callbackURL
 });
 
 // connect to the database
