@@ -38,8 +38,8 @@ passport.use('facebook-authz', new FacebookStrategy({
 
 
 passport.use(new LinkedInStrategy({
-    consumerKey: config.linkedin.consumerKey,
-    consumerSecret: config.linkedin.consumerSecret,
+    clientID: config.linkedin.clientID,
+    clientSecret: config.linkedin.clientSecret,
     callbackURL: config.linkedin.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
@@ -51,8 +51,8 @@ passport.use(new LinkedInStrategy({
 //authorize facebook
 
 passport.use('linkedin-authz', new LinkedInStrategy({
-  consumerKey: config.linkedin.consumerKey,
-  consumerSecret: config.linkedin.consumerSecret,
+  clientID: config.linkedin.clientID,
+  clientSecret: config.linkedin.clientSecret,
   callbackURL: config.linkedin.callbackauthzURL,
   passReqToCallback: true
   },
