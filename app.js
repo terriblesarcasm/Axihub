@@ -63,12 +63,7 @@ app.get('/app', ensureAuthenticated, function(req, res){
     }
   })
 });
-/*
-app.get('/auth/facebook',
-  passport.authenticate('facebook'),
-  function(req, res){
-  });
-*/
+
 app.get('/auth/facebook', authnOrAuthzFacebook);
 
 app.get('/auth/facebook/callback', 
@@ -108,12 +103,7 @@ app.get('/auth/instagram/callback?type-authz',
       res.redirect('/app');
     });
   });
-/*
-app.get('/auth/twitter',
-  passport.authenticate('twitter'),
-  function(req, res){
-  });
-*/
+
 app.get('/auth/instagram', authnOrAuthzInstagram);
 
 app.get('/auth/twitter', authnOrAuthzTwitter);
@@ -121,7 +111,7 @@ app.get('/auth/twitter', authnOrAuthzTwitter);
 app.get('/auth/linkedin', authnOrAuthzLinkedIn);
 
 app.get('/auth/linkedin/callback',
-  passport.authenticate('twitter', {failureRedirect: '/'}),
+  passport.authenticate('linkedin', {failureRedirect: '/'}),
   function(req, res) {
     res.redirect('/app');
   });

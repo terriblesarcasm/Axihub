@@ -5,16 +5,11 @@
         <h2>{{ user.name }}'s Smart Feed</h2>
       
         <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
-         &nbsp; 
         <button class="btn btn-danger" ng-click="logout()" ng-disabled="!user">Logout</button>
-         &nbsp;
         <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
         <button class="btn btn-success" ng-click="getLinkedInFeed()">Get Linkedin</button>
-        &nbsp;
         <button class="btn btn-success" ng-click="filtervar=''" >Show Smart Feed</button>
-         &nbsp;
         <button class="btn btn-success" ng-click="filtervar='facebook.com'" >Show only Facebook</button>
-         &nbsp;
         <button class="btn btn-success" ng-click="filtervar='twitter.com'">Show only Twitter</button>
       
         <h4>
