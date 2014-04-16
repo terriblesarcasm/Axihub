@@ -1,7 +1,7 @@
 {
-  "name": "node-bootstrap3-template",
+  "name": "Axihub",
   "version": "0.0.1",
-  "description": "A template for express, NodeJS and twitter bootstrap 3",
+  "description": "An intelligent social feed",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,17 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mjhea0/node-bootstrap3-template.git"
+    "url": "git@github.com:terriblesarcasm/Axihub.git"
   },
   "keywords": [
-    "nodejs",
-    "express",
-    "template",
-    "twitter",
-    "bootstrap",
-    "bootstrap3"
   ],
-  "author": "Michael Herman <michael@mherman.org>",
+  "author": "Steve Thompson <thompson.s1987@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "express": "~3.3.4",
@@ -30,6 +24,10 @@
     "passport-twitter": "~1.0.2",
     "passport-github": "~0.1.5",
     "passport-google": "~0.3.0",
+    "passport-instagram": "~0.1.2",
+    "passport-linkedin-oauth2": "~1.1.1",
+    "query": "~0.2.0",
+    
     "mocha": "~1.14.0",
     "should": "~2.0.2",
     "chai": "~1.8.1",
