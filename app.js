@@ -186,7 +186,7 @@ app.get('/twitter/api', callTwitterApi);
 app.get('/linkedin/api', callLinkedInApi);
 
 // port
-app.listen(3000);
+app.listen(config.port);
 
 function callTwitterApi(req, res, next) {
   var user = req.user;
