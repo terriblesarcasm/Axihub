@@ -219,7 +219,7 @@ function callLinkedInApi(req, res, next) {
   
   request.get('https://api.linkedin.com/v1/people/~/network/updates?format=json&count=25&oauth2_access_token='+accessToken, function (error, response, body) {
     if (!error) {
-      console.log(body);
+      //console.log(body);
       res.send(body);
     } else if (error) {
       console.log(error);
