@@ -93,6 +93,21 @@
               </footer>
             </div>
           </div>
+
+
+          <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
+            <div class='context'>
+              <center><img class='img-rounded profile-image' ng-src='{{ post.updateContent.pictureUrl }}'></center>
+            </div>
+
+            <div class='content'>
+              <div class='comment'>
+                {{ post.updateContent.person.currentShare.comment }}
+              </div>
+
+              <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+            </div>
+          </div>
           <div class="post-divider"></div>
         </div>
       </div>

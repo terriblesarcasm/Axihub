@@ -63,10 +63,10 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
     }
 })
 
-.factory('Smart', function (Twitter, Facebook, $q) {
+.factory('Smart', function (Twitter, Facebook, LinkedIn, $q) {
     var smartfeed = [];
     var promises = [];
-    var providerslist = { 'facebook.com' : Facebook.getfeed, 'twitter.com' : Twitter.getfeed };
+    var providerslist = { 'facebook.com' : Facebook.getfeed, 'twitter.com' : Twitter.getfeed, 'linked.com' : LinkedIn.getfeed };
     
     return {
 
@@ -87,6 +87,11 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
                         } else if (result[i][j].created_time) {
                             result[i][j].axihubprovider = 'facebook.com';
                             result[i][j].axihubtime = Date.parse(result[i][j].created_time);
+                            continue;
+                        } else if (result[i][j].timeStamp) {
+                            result[i][j].axihubprovider = 'linkedin.com';
+                            result[i][j].axihubtime = Date.parse(result[i][j].timeStamp);
+                            continue;
                         }
                     }
                     smartfeed = smartfeed.concat(result[i]);
