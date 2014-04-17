@@ -66,14 +66,13 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
 .factory('Smart', function (Twitter, Facebook, LinkedIn, $q) {
     var smartfeed = [];
     var promises = [];
-    var providerslist = { 'facebook.com' : Facebook.getfeed, 'twitter.com' : Twitter.getfeed, 'linked.com' : LinkedIn.getfeed };
+    var providerslist = { 'facebook.com' : Facebook.getfeed, 'twitter.com' : Twitter.getfeed, 'linkedin.com' : LinkedIn.getfeed };
     
     return {
 
         getfeed: function(user) {
             var deferred = $q.defer();
             for (var i = user.accounts.length - 1; i >= 0; i--) {
-                console.log(user.accounts[i].provider);
                 promises.push(providerslist[user.accounts[i].provider]());
             };
 
