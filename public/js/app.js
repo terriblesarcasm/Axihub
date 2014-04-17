@@ -55,7 +55,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
         getfeed: function() {
             var deferred = $q.defer();
             $http.get('/linkedin/api').success(function(response) {
-                deferred.resolve(response);
+                deferred.resolve(response.values);
             });
 
             return deferred.promise;
