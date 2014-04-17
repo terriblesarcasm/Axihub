@@ -88,7 +88,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
                             result[i][j].axihubprovider = 'facebook.com';
                             result[i][j].axihubtime = Date.parse(result[i][j].created_time);
                             continue;
-                        } else if (result[i][j].timeStamp) {
+                        } else if (result[i][j].timestamp) {
                             result[i][j].axihubprovider = 'linkedin.com';
                             result[i][j].axihubtime = Date.parse(result[i][j].timeStamp);
                             continue;
