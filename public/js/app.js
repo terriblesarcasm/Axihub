@@ -170,7 +170,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
 .filter('accountFilter', function() {
   return function(objects) {
     //Edit this array when there are new networks to show them in the accounts page
-    var networks = ['facebook.com', 'twitter.com'];
+    var networks = ['facebook.com', 'twitter.com', 'linkedin.com'];
     var accountNetworks = objects.map(function (value) { return value.provider; })
     var leftoverNetworks = networks.filter(function (value) {return accountNetworks.indexOf(value) < 0;});
     
