@@ -250,7 +250,7 @@ function authnOrAuthzLinkedIn(req, res, next) {
     passport.authenticate('linkedin', { state: config.linkedin.state, successRedirect: '/app',
                                         failureRedirect: '/login' })(req, res, next);
   } else {
-    passport.authorize('linkedin-authz')(req, res, next);
+    passport.authorize('linkedin-authz', { state: config.linkedin.state })(req, res, next);
   }
 }
 
