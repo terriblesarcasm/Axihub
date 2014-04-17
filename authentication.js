@@ -40,7 +40,8 @@ passport.use('facebook-authz', new FacebookStrategy({
 passport.use(new LinkedInStrategy({
     clientID: config.linkedin.clientID,
     clientSecret: config.linkedin.clientSecret,
-    callbackURL: config.linkedin.callbackURL
+    callbackURL: config.linkedin.callbackURL,
+    scope: ['r_fullprofile', 'r_emailaddress', 'r_network', 'rw_nus']
   },
   function(accessToken, refreshToken, profile, done) {
     authentication(accessToken, refreshToken, profile, done, 'linkedin.com');
@@ -54,6 +55,7 @@ passport.use('linkedin-authz', new LinkedInStrategy({
   clientID: config.linkedin.clientID,
   clientSecret: config.linkedin.clientSecret,
   callbackURL: config.linkedin.callbackauthzURL,
+  scope: ['r_fullprofile', 'r_emailaddress', 'r_network', 'rw_nus'],
   passReqToCallback: true
   },
   function(req, accessToken, refreshToken, profile, done) {
