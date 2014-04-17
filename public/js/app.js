@@ -26,8 +26,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
             var deferred = $q.defer();
 
             FB.api('/me/home', function(response) {
-                console.log('test');
-                console.log(response);
                 deferred.resolve(response.data);
             });
 
@@ -77,7 +75,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
             };
 
             $q.all(promises).then(function(result) {
-                console.log(result);
                 for(var i = result.length - 1; i >= 0; i--) {
                     for(var j = result[i].length - 1; j >= 0; j--) {
                         if(result[i][j].created_at) {
@@ -141,26 +138,32 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
 
 
 .filter('dateFilter', function () {
+    var hour = 60;
+    var day = hour * 24;
+    var week = day * 7;
+    var month = day * 30;
+    var year = day * 365;
+
     return function (objects) {
         var post_time = new Date(objects);
 
         var diff = new Date().getTime() - post_time;
         var diff_in_mins = diff / 60000;
-
-        if (diff_in_mins < 60) { // if post is less than an hour old
+        
+        if (diff_in_mins < hour) { // if post is less than an hour old
             if (diff_in_mins < 1) {
                 return Math.floor(diff_in_mins) + ' minute ago';
             } else {
                 return Math.floor(diff_in_mins) + ' minutes ago';
             }
-        } else if (diff_in_mins < (24 * 60)) {
+        } else if (diff_in_mins < (day)) {
             if (diff_in_mins < (2 * 60)) {
                 return Math.floor(diff_in_mins / 60) + ' hour ago';
             } else {
                 return Math.floor(diff_in_mins / 60) + ' hours ago';
             }
-        } else if (diff_in_mins < (7 * 24 * 60)) {
-            if (diff_in_mins < (2 * 24 * 60)) {
+        } else if (diff_in_mins < (year)) {
+            if (diff_in_mins < (2 * day)) {
                 return 'yesterday';
             } else {
                 return Math.floor(diff_in_mins / (24 * 60)) + ' days ago';

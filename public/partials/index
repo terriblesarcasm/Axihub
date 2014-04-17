@@ -50,9 +50,7 @@
 
             <div ng-if="post.axihubprovider=='twitter.com' && !post.retweeted_status">
               <div class="context">
-                <div class='twitt-profile-pic' ng-if="post.user.profile_image_url">
-                  <center><img class='img-rounded profile-image' ng-src="{{post.user.profile_image_url}}"></center>
-                </div>
+                <center><img class='img-rounded twitter-profile-image' ng-src="{{post.user.profile_image_url}}"></center>
               </div>
 
               <div class="content">
@@ -72,7 +70,7 @@
 
           <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
             <div class='context'>
-              <center><img class='img-rounded profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'></center>
+              <center><img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'></center>
             </div>
 
             <div class='content'>
@@ -97,7 +95,7 @@
 
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
             <div class='context'>
-              <center><img class='img-rounded profile-image' ng-src='{{ post.updateContent.person.pictureUrl }}'></center>
+              <center><img class='img-rounded linkedin-profile-image' ng-src='{{ post.updateContent.person.pictureUrl }}'></center>
             </div>
 
             <div class='content'>

@@ -62,8 +62,8 @@ img {
 	max-width: 100%;
 }
 
-.twitt-profile-pic {
-
+.twitter-profile-image, .facebook-profile-image, .linkedin-profile-image {
+	width: 50px;
 }
 
 .tweet-body {
