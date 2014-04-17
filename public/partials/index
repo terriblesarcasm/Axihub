@@ -11,7 +11,7 @@
         <button class="btn btn-info" ng-click="filtervar='twitter.com'">Show only Twitter</button>
       
         <h4>
-          Hello, <span ng-show="user.name">{{ user.name }}</span>!
+          Hello, {{ user.name }}!
         </h4>
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
