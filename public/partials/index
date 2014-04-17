@@ -97,7 +97,7 @@
 
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
             <div class='context'>
-              <center><img class='img-rounded profile-image' ng-src='{{ post.updateContent.pictureUrl }}'></center>
+              <center><img class='img-rounded profile-image' ng-src='{{ post.updateContent.person.pictureUrl }}'></center>
             </div>
 
             <div class='content'>

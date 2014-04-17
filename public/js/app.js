@@ -90,8 +90,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
                             continue;
                         } else if (result[i][j].timestamp) {
                             result[i][j].axihubprovider = 'linkedin.com';
-                            console.log('result[i][j].timestamp: ' + result[i][j].timestamp + ' Date.parse(result[i][j].timestamp): ' + Date.parse(result[i][j].timestamp));
-                            console.log()
                             result[i][j].axihubtime = result[i][j].timestamp;
                             continue;
                         }
