@@ -247,7 +247,7 @@ function authnOrAuthzInstagram(req, res, next) {
 
 function authnOrAuthzLinkedIn(req, res, next) {
   if (!req.isAuthenticated()) {
-    passport.authenticate('linkedin', { successRedirect: '/app',
+    passport.authenticate('linkedin', { state: config.linkedin.state, successRedirect: '/app',
                                         failureRedirect: '/login' })(req, res, next);
   } else {
     passport.authorize('linkedin-authz')(req, res, next);
