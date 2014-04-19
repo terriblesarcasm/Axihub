@@ -97,6 +97,10 @@ img {
     display: block;
 } 
 
+/************************************
+********	Animations		*********
+************************************/
+
 .animate-enter.animate-enter-active, 
 .animate-leave {
     opacity: 1;
@@ -109,4 +113,14 @@ img {
     opacity: 0;
     top: -50px;
     height: 0px;
+}
+
+.my-input {
+	-webkit-transition:all linear 0.5s;
+	transition:all linear 0.5s;
+	background: transparent;
+}
+.my-input.ng-invalid {
+	color: white;
+	background: red;
 }

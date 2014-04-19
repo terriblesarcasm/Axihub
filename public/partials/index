@@ -5,19 +5,20 @@
         <h2>{{ user.name }}'s Smart Feed</h2>    
         <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
         <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
-        <button class="btn btn-info" ng-click="isCollapsed = !isCollapsed">Toggle filters</button>
+        <button class="btn btn-info" ng-click="isCollapsed = !isCollapsed">Toggle filter</button>
         <div collapse="isCollapsed">
-          <button class="btn btn-info" ng-click="filtervar=''" >Show Smart Feed</button>
+          <input ng-model='search.$' name='anim' class='my-input'>
+          <!-- <button class="btn btn-info" ng-click="filtervar=''" >Show Smart Feed</button>
           <button class="btn btn-info" ng-click="filtervar='facebook.com'" >Show only Facebook</button>
           <button class="btn btn-info" ng-click="filtervar='twitter.com'">Show only Twitter</button>
-          <button class="btn btn-info" ng-click="filtervar='linkedin.com'">Show only LinkedIn</button>
+          <button class="btn btn-info" ng-click="filtervar='linkedin.com'">Show only LinkedIn</button> -->
         </div>
         <h4>
           Hello, {{ user.name }}!
         </h4>
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
-        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:filtervar" ng-if="post">
+        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:search" ng-if="post">
           <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
             <div ng-if="post.retweeted_status">
               <div class='context'>
