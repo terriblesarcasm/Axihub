@@ -3,10 +3,9 @@
     <div class="app">
       <div class="top">
         <h2>{{ user.name }}'s Smart Feed</h2>
-      
-        <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
-        <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
-        <div ng-controller="CollapseCtrl">
+        <div ng-controller="CollapseCtrl">      
+          <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
+          <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
           <button class="btn btn-info" ng-click="isCollapsed = !isCollapsed">Toggle filters</button>
           <div collapse="isCollapsed">
             <button class="btn btn-info" ng-click="filtervar=''" >Show Smart Feed</button>
