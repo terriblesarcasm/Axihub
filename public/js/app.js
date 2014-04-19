@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
+var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap'])
 
 .factory('Facebook', function($rootScope, $q) {
     return {
@@ -218,6 +218,10 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute'])
         });
     }
 
+})
+
+.controller('CollapseCtrl', function($scope) {
+    $scope.isCollapsed = false;
 });
 
 window.fbAsyncInit = function() {
