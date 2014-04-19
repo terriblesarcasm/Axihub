@@ -218,10 +218,8 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap']
         });
     }
 
-})
-
-.controller('CollapseCtrl', function($scope) {
     $scope.isCollapsed = true;
+
 });
 
 window.fbAsyncInit = function() {
