@@ -20,7 +20,7 @@
         </h4>
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
-        <div class="post" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:filtervar" ng-if="post">
+        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:filtervar" ng-if="post">
           <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
             <div ng-if="post.retweeted_status">
               <div class='context'>
