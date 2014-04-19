@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap'])
+var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
 .factory('Facebook', function($rootScope, $q) {
     return {
