@@ -94,7 +94,7 @@
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
             <div ng-if="post.updateType=='JGRP'">
               <div class='context'>
-                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
+                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.companyPersonUpdate.person.pictureUrl}}'>
                 <a ng-href="{{post.updateContent.companyPersonUpdate.person.siteStandardProfileRequest.url}}">{{ post.updateContent.companyPersonUpdate.person.firstName }} {{ post.updateContent.companyPersonUpdate.person.lastName }}</a> joined group <a ng-href="{{post.updateContent.memberGroups.values[0].siteGroupRequest.url}}"> {{ post.updateContent.memberGroups.values[0].name }}</a>
                 <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
