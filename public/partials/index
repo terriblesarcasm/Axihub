@@ -11,11 +11,11 @@
             <div class='input-group-btn'>
               <button type="button" class='btn btn-default dropdown-toggle' data-toggle="dropdown">{{ searchdisplay }} <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a ng-click='searchparam="axihubprovider"; searchdisplay="Provider"'>Provider</a></li>
-                <li><a ng-click='searchparam="$"; searchdisplay="Entire Feed"'>Entire Feed</a></li>
+                <li><a ng-click='searchparam="search.axihubprovider"; searchdisplay="Provider"'>Provider</a></li>
+                <li><a ng-click='searchparam="search.$"; searchdisplay="Entire Feed"'>Entire Feed</a></li>
               </ul>
             </div> <!-- /btn-group -->
-            <input ng-model='"search." + searchparam' name='anim' class='my-input'>
+            <input ng-model='searchparam' name='anim' class='my-input'>
           </div> <!-- /input-group -->
         </div>
         <h4>
