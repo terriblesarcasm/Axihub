@@ -42,14 +42,8 @@ body {
 .input-group {
 	margin: 0 auto;
 	max-width: 350px;
-}
-
-.input-group-btn button {
-	margin-left: 5px;
-}
-
-.my-input {
-	margin-right: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 footer {
