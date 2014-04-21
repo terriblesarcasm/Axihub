@@ -62,10 +62,18 @@ body {
 
 .linkedin-profile {
 	float: left;
+	max-width: 70px;
+	width: 20%;
 }
 
 .linkedin-update-header, .linkedin-time {
 	float: right;
+	width: 80%;
+	text-align: left;
+}
+
+.linkedin-post.content { 
+	clear: both;
 }
 
 .tweet-body {
