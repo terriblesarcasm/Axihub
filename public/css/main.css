@@ -31,6 +31,10 @@ body {
 	
 }
 
+footer {
+	margin-top: 5px;
+}
+
 .post, .twitter-post, .facebook-post {
 	clear: both;
 	background-color: white;
