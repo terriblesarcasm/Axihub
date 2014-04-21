@@ -58,22 +58,7 @@ body {
 
 .twitter-profile-image, .facebook-profile-image, .linkedin-profile-image {
 	width: 50px;
-}
-
-.linkedin-profile {
-	float: left;
-	max-width: 70px;
-	width: 20%;
-}
-
-.linkedin-update-header, .linkedin-time {
-	float: right;
-	width: 80%;
-	text-align: left;
-}
-
-.linkedin-post.content { 
-	clear: both;
+	margin: 0 auto;
 }
 
 .tweet-body {
@@ -82,11 +67,13 @@ body {
 }
 
 .context {
-	
+	float: left;
+	width: 70px;
 }
 
 .content {
-
+	margin-left: 70px;
+	overflow: hidden;
 }
 
 .post-divider {

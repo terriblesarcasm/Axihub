@@ -94,15 +94,11 @@
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
             <div ng-if="post.updateType=='JGRP'">
               <div class='context'>
-                <div class='linkedin-profile'>
-                  <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
-                </div>
-                <div class='linkedin-update-header'>
-                  <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> joined group <a ng-href="{{post.updateContent.memberGroups.values[0].siteGroupRequest.url}}"> {{ post.updateContent.memberGroups.values[0].name }}</a>
-                </div>
-                <div class='linkedin-time'>
-                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
-                </div>
+                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
+              </div>
+              <div class='content'>
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> joined group <a ng-href="{{post.updateContent.memberGroups.values[0].siteGroupRequest.url}}"> {{ post.updateContent.memberGroups.values[0].name }}</a>
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
             </div>
 
@@ -111,32 +107,24 @@
                 <div class='linkedin-profile'>
                   <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
                 </div>
-                <div class='linkedin-update-header'>
-                  <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a>
-                </div>
-                <div class='linkedin-time'>
-                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
-                </div>
               </div>
 
               <div class='content'>
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> 
                 <div class='comment'>
                   {{ post.updateContent.person.currentShare.comment }}
                 </div>
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
             </div>
 
             <div ng-if="post.updateType=='MSFC'">
               <div class='context'>
-                <div class='linkedin-profile'>
-                  <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.companyPersonUpdate.person.pictureUrl}}'>
-                </div>
-                <div class='linkedin-update-header'>
-                  <a ng-href="{{ post.updateContent.companyPersonUpdate.person.siteStandardProfileRequest.url}}">{{ post.updateContent.companyPersonUpdate.person.firstName }} {{ post.updateContent.companyPersonUpdate.person.lastName }}</a> started following {{ post.updateContent.company.name }}
-                </div>
-                <div class='linkedin-time'>
-                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
-                </div>
+                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.companyPersonUpdate.person.pictureUrl}}'>
+              </div>
+              <div class='content'>
+                <a ng-href="{{ post.updateContent.companyPersonUpdate.person.siteStandardProfileRequest.url}}">{{ post.updateContent.companyPersonUpdate.person.firstName }} {{ post.updateContent.companyPersonUpdate.person.lastName }}</a> started following {{ post.updateContent.company.name }}
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>              
               </div>
             </div>
           </div>
