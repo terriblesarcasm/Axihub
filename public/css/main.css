@@ -39,6 +39,10 @@ body {
 	
 }
 
+.input-group {
+	margin: 0 auto;
+}
+
 footer {
 	margin-top: 5px;
 }
