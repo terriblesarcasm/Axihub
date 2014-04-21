@@ -67,12 +67,13 @@ body {
 
 .context {
 	float: left; 
-	width: 10%;
+	width: 25%;
+	max-size: 100px;
 }
 
 .content {
 	float: right;
-	width: 90%;
+	
 }
 
 .post-divider {
