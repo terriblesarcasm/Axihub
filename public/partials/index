@@ -153,7 +153,7 @@
                     <img ng-src='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.pictureUrl }}'>
                   </div>
                   <div class='linkedin-originalUpdate-content'>
-                    <a ng-href='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.siteStandardProfileRequest.url'>{{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.firstName }} {{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.lastName }}</a> {{ post.updateContent.updateAction.originalUpdate.updateContent.currentShare.comment }}
+                    <a ng-href='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.siteStandardProfileRequest.url }}'>{{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.firstName }} {{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.lastName }}</a> {{ post.updateContent.updateAction.originalUpdate.updateContent.currentShare.comment }}
                   </div>
               </div>
           </div>
