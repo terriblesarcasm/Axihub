@@ -8,6 +8,10 @@ body {
 	background-color: #cccccc;
 }
 
+.search {
+	margin-top: 5px;
+}
+
 .top, .post {
 	border: 1px solid #999999;
 }
@@ -25,6 +29,10 @@ body {
 	width: 100%;
 	min-width: auto;
 	text-align: center;
+}
+
+.top.btn {
+	margin: 0 5px;
 }
 
 .app {

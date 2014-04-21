@@ -6,7 +6,7 @@
         <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
         <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
         <button class="btn btn-info" ng-click="isCollapsed = !isCollapsed">Toggle filter</button>
-        <div collapse="isCollapsed">
+        <div class='search' collapse="isCollapsed">
           <input ng-model='search.$' name='anim' class='my-input'>
           <!-- <button class="btn btn-info" ng-click="filtervar=''" >Show Smart Feed</button>
           <button class="btn btn-info" ng-click="filtervar='facebook.com'" >Show only Facebook</button>
