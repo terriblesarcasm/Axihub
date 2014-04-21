@@ -12,7 +12,7 @@
               <button type="button" class='btn btn-default dropdown-toggle' data-toggle="dropdown">{{ search.display }} <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <li ng-repeat="choice in dropdown">
-                  <a ng-click="search.param=choice.param; search.display=choice.display">
+                  <a ng-click="search.param=choice.param; search.display=choice.display">{{choice.display}}</a>
                 </li>
               </ul>
             </div> <!-- /btn-group -->
