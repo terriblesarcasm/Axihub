@@ -4,8 +4,8 @@
       <div class="top">
         <h2>{{ user.name }}'s Smart Feed</h2>    
         <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
-        <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
-        <button class="btn btn-info" ng-click="isCollapsed = !isCollapsed">Toggle filter</button>
+        <button class="btn btn-success" ng-click="getSmartFeed()" >Get Your Feed</button>
+        <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Filter</button>
         <div class='search' collapse="isCollapsed">
           <div class='input-group'>
             <div class='input-group-btn'>
