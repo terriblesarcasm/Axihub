@@ -44,6 +44,10 @@ body {
 	max-width: 350px;
 }
 
+.input-group-btn button {
+	margin-left: 0px;
+}
+
 footer {
 	margin-top: 5px;
 }

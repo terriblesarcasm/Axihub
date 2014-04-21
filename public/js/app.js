@@ -189,17 +189,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 .controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q) {
     
-    // $scope.login = function() {
-    //     Facebook.login().then(function(token) {
-    //         $scope.Facebook.token = token;
-    //     });
-    // } 
-    // $scope.logout = function() {
-    //     Facebook.logout().then(function() {
-    //         $scope.Facebook.token = null;
-    //     });
-    // }
-
     $scope.getSmartFeed = function() {
         Smart.getfeed($scope.user).then(function(feed) {
             $scope.Smart.feed = feed;
