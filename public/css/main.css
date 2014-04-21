@@ -68,7 +68,7 @@ body {
 .context {
 	float: left; 
 	width: 25%;
-	max-size: 100px;
+	max-width: 100px;
 }
 
 .content {
