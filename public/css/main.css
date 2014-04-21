@@ -66,14 +66,11 @@ body {
 }
 
 .context {
-	float: left; 
-	width: 25%;
-	max-width: 100px;
+	
 }
 
 .content {
-	float: right;
-	min-width: 75%;
+
 }
 
 .post-divider {
