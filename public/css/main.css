@@ -73,7 +73,7 @@ body {
 
 .content {
 	float: right;
-	width: 75%;
+	min-width: 75%;
 }
 
 .post-divider {
