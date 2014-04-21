@@ -58,7 +58,7 @@ body {
 
 .twitter-profile-image, .facebook-profile-image, .linkedin-profile-image {
 	width: 50px;
-	margin: 0 auto;
+	margin: 0px 10px;
 }
 
 .tweet-body {
