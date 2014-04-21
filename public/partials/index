@@ -102,16 +102,21 @@
 
             <div ng-if="post.updateType=='SHAR'">
               <div class='context'>
-                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
-                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a>
+                <div class='linkedin-profile'>
+                  <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
+                </div>
+                <div class='linkedin-update-header'>
+                  <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a>
+                </div>
+                <div class='linkedin-time'>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </div>
               </div>
 
               <div class='content'>
                 <div class='comment'>
                   {{ post.updateContent.person.currentShare.comment }}
                 </div>
-
-                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
             </div>
 

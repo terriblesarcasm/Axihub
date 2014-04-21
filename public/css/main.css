@@ -60,6 +60,14 @@ body {
 	width: 50px;
 }
 
+.linkedin-profile {
+	float: left;
+}
+
+.linkedin-update-header, .linkedin-time {
+	float: right;
+}
+
 .tweet-body {
 	margin-bottom: 10px; 
 	min-height: 70px;
