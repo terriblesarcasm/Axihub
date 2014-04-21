@@ -71,16 +71,13 @@
 
           <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
             <div class='context'>
-              <center><img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'></center>
+              <img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'>
+              <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
             </div>
 
             <div class='content'>
-              <div class='facebook-poster'>
-                <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
-              </div>
-
               <div ng-if="post">
-                <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}"></a>
+                <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
               </div>
 
               <div ng-if="post.message">
@@ -95,16 +92,35 @@
 
 
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
-            <div class='context'>
-              <center><img class='img-rounded linkedin-profile-image' ng-src='{{ post.updateContent.person.pictureUrl }}'></center>
+            <div ng-if="post.updateType=='JGRP'">
+              <div class='context'>
+                <img class='img-rounded linkedin-profile-image' ng-src='post.updateContent.person.pictureUrl'>
+                <a ng-href="post.updateContent.person.siteStandardProfileRequest.url">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> joined group <a ng-href="post.updateContent.memberGroups.values[0].siteGroupRequest.url"> {{ post.updateContent.memberGroups.values[0].name }}</a>
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+              </div>
             </div>
 
-            <div class='content'>
-              <div class='comment'>
-                {{ post.updateContent.person.currentShare.comment }}
+            <div ng-if="post.updateType=='SHAR'">
+              <div class='context'>
+                <img class='img-rounded linkedin-profile-image' ng-src='post.updateContent.person.pictureUrl'>
+                <a ng-href="post.updateContent.person.siteStandardProfileRequest.url">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a>
               </div>
 
-              <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+              <div class='content'>
+                <div class='comment'>
+                  {{ post.updateContent.person.currentShare.comment }}
+                </div>
+
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+              </div>
+            </div>
+
+            <div ng-if="post.updateType=='MSFC'">
+              <div class='context'>
+                <img class='img-rounded linkedin-profile-image' ng-src='post.updateContent.person.pictureUrl'>
+                <a ng-href="post.updateContent.person.siteStandardProfileRequest.url">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> started following {{ post.updateContent.company.name }}
+                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+              </div>
             </div>
           </div>
           <div class="post-divider"></div>
