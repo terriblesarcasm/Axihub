@@ -45,7 +45,11 @@ body {
 }
 
 .input-group-btn button {
-	margin-left: 0px;
+	margin-left: 5px;
+}
+
+.my-input {
+	margin-right: 5px;
 }
 
 footer {
@@ -137,7 +141,6 @@ footer {
 	-webkit-transition:all linear 0.5s;
 	transition:all linear 0.5s;
 	background: transparent;
-	max-width: 250px;
 }
 .my-input.ng-invalid {
 	color: white;
