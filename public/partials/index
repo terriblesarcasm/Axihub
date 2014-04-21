@@ -15,7 +15,7 @@
                 <li><a ng-click='searchparam="$"; searchdisplay="Entire Feed"'>Entire Feed</a></li>
               </ul>
             </div> <!-- /btn-group -->
-            <input ng-model='search.$' name='anim' class='my-input'>
+            <input ng-model='"search." + searchparam' name='anim' class='my-input'>
           </div> <!-- /input-group -->
         </div>
         <h4>
