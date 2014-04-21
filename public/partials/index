@@ -41,7 +41,7 @@
                   </div>
 
                   <div ng-if="post.retweeted_status.entities.media[0]">
-                    <img ng-src="{{post.retweeted_status.entities.media[0].media_url}}">
+                    <img class="img-responsive" ng-src="{{post.retweeted_status.entities.media[0].media_url}}">
                   </div>
 
                   <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
@@ -80,7 +80,7 @@
               </div>
 
               <div ng-if="post">
-                <a ng-href="{{ post.link }}"><img ng-src="{{ post.picture }}"></a>
+                <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}"></a>
               </div>
 
               <div ng-if="post.message">
