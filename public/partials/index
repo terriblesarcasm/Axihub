@@ -12,11 +12,11 @@
               <button type="button" class='btn btn-default dropdown-toggle' data-toggle="dropdown">{{ search.display }} <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <li ng-repeat="choice in dropdown">
-                  <a ng-click="search.param=choice.param; search.display=choice.display">{{choice.display}}</a>
+                  <a ng-click="search.param=choice.param; search.display=choice.display; search.placeholder=choice.placeholder">{{choice.display}}</a>
                 </li>
               </ul>
             </div> <!-- /btn-group -->
-            <input ng-model='search.term[search.param]' name='anim' class='my-input form-control'>
+            <input ng-model='search.term[search.param]' placeholder='search.placeholder' name='anim' class='my-input form-control'>
           </div> <!-- /input-group -->
         </div>
         <h4>

@@ -222,17 +222,20 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     $scope.search = {
         display: 'Provider',
         param: 'axihubprovider',
-        term: {}
+        term: {},
+        placeholder: 'e.g. facebook.com'
     }
 
     $scope.dropdown = [
         { 
             display: 'Provider', 
-            param: 'axihubprovider'
+            param: 'axihubprovider',
+            placeholder: 'e.g. facebook.com'
         },
         {
             display: 'Entire Feed',
-            param: '$'
+            param: '$',
+            placeholder: 'e.g. Names, Keywords, etc'
         }
     ]
 });
