@@ -72,10 +72,10 @@
           <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
             <div class='context'>
               <img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'>
-              <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
             </div>
 
             <div class='content'>
+              <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
               <div ng-if="post">
                 <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
               </div>
