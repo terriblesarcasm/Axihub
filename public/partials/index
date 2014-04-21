@@ -117,8 +117,8 @@
 
             <div ng-if="post.updateType=='MSFC'">
               <div class='context'>
-                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
-                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> started following {{ post.updateContent.company.name }}
+                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.companyPersonUpdate.person.pictureUrl}}'>
+                <a ng-href="{{ post.updateContent.companyPersonUpdate.person.siteStandardProfileRequest.url}}">{{ post.updateContent.companyPersonUpdate.person.firstName }} {{ post.updateContent.companyPersonUpdate.person.lastName }}</a> started following {{ post.updateContent.company.name }}
                 <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
             </div>
