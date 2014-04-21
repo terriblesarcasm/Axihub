@@ -219,9 +219,22 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     }
 
     $scope.isCollapsed = true;
-    $scope.searchparam = 'provider';
-    $scope.searchdisplay = 'Provider';
+    $scope.search = {
+        display: 'Provider',
+        param: 'axihubprovider',
+        term: {}
+    }
 
+    $scope.dropdown = [
+        { 
+            display: 'Provider', 
+            param: 'axihubprovider'
+        },
+        {
+            display: 'Entire Feed',
+            param: '$'
+        }
+    ]
 });
 
 window.fbAsyncInit = function() {

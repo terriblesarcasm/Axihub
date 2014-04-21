@@ -9,13 +9,14 @@
         <div class='search' collapse="isCollapsed">
           <div class='input-group'>
             <div class='input-group-btn'>
-              <button type="button" class='btn btn-default dropdown-toggle' data-toggle="dropdown">{{ searchdisplay }} <span class="caret"></span></button>
+              <button type="button" class='btn btn-default dropdown-toggle' data-toggle="dropdown">{{ search.display }} <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a ng-click='searchparam="search.axihubprovider"; searchdisplay="Provider"'>Provider</a></li>
-                <li><a ng-click='searchparam="search.$"; searchdisplay="Entire Feed"'>Entire Feed</a></li>
+                <li ng-repeat="choice in dropdown">
+                  <a ng-click="search.param=choice.param; search.display=choice.display">
+                </li>
               </ul>
             </div> <!-- /btn-group -->
-            <input ng-model='searchparam' name='anim' class='my-input'>
+            <input ng-model='search.term[search.param]' name='anim' class='my-input form-control'>
           </div> <!-- /input-group -->
         </div>
         <h4>
@@ -23,7 +24,7 @@
         </h4>
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
-        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:search" ng-if="post">
+        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:search.term" ng-if="post">
           <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
             <div ng-if="post.retweeted_status">
               <div class='context'>
