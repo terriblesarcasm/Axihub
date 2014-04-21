@@ -95,7 +95,7 @@
             <div ng-if="post.updateType=='JGRP'">
               <div class='context'>
                 <img class='img-rounded linkedin-profile-image' ng-src='post.updateContent.person.pictureUrl'>
-                <a ng-href="post.updateContent.person.siteStandardProfileRequest.url">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> joined group <a ng-href="post.updateContent.memberGroups.values[0].siteGroupRequest.url"> {{ post.updateContent.memberGroups.values[0].name }}</a>
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> joined group <a ng-href="{{post.updateContent.memberGroups.values[0].siteGroupRequest.url}}"> {{ post.updateContent.memberGroups.values[0].name }}</a>
                 <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
             </div>
@@ -103,7 +103,7 @@
             <div ng-if="post.updateType=='SHAR'">
               <div class='context'>
                 <img class='img-rounded linkedin-profile-image' ng-src='post.updateContent.person.pictureUrl'>
-                <a ng-href="post.updateContent.person.siteStandardProfileRequest.url">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a>
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a>
               </div>
 
               <div class='content'>
@@ -118,7 +118,7 @@
             <div ng-if="post.updateType=='MSFC'">
               <div class='context'>
                 <img class='img-rounded linkedin-profile-image' ng-src='post.updateContent.person.pictureUrl'>
-                <a ng-href="post.updateContent.person.siteStandardProfileRequest.url">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> started following {{ post.updateContent.company.name }}
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> started following {{ post.updateContent.company.name }}
                 <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
               </div>
             </div>
