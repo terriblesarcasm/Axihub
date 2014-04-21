@@ -7,11 +7,16 @@
         <button class="btn btn-success" ng-click="getSmartFeed()" >Get Smart Feed</button>
         <button class="btn btn-info" ng-click="isCollapsed = !isCollapsed" disabled='Smart.feed'>Toggle filter</button>
         <div class='search' collapse="isCollapsed">
-          <input ng-model='search.$' name='anim' class='my-input'>
-          <!-- <button class="btn btn-info" ng-click="filtervar=''" >Show Smart Feed</button>
-          <button class="btn btn-info" ng-click="filtervar='facebook.com'" >Show only Facebook</button>
-          <button class="btn btn-info" ng-click="filtervar='twitter.com'">Show only Twitter</button>
-          <button class="btn btn-info" ng-click="filtervar='linkedin.com'">Show only LinkedIn</button> -->
+          <div class='input-group'>
+            <div class='input-group-btn'>
+              <button type="button" class='btn btn-default dropdown-toggle' data-toggle="dropdown">{{ searchdisplay }} <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a ng-click='searchparam="axihubprovider"; searchdisplay="Provider"'>Provider</a></li>
+                <li><a ng-click='searchparam="$"; searchdisplay="Entire Feed"'>Entire Feed</a></li>
+              </ul>
+            </div> <!-- /btn-group -->
+            <input ng-model='search.{{searchparam}}' name='anim' class='my-input'>
+          </div> <!-- /input-group -->
         </div>
         <h4>
           Hello, {{ user.name }}!

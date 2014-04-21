@@ -219,6 +219,8 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     }
 
     $scope.isCollapsed = true;
+    $scope.searchparam = 'provider';
+    $scope.searchdisplay = 'Provider';
 
 });
 
