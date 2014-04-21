@@ -40,6 +40,15 @@ body {
 	
 }
 
+.linkedin-originalUpdate-profile-img {
+	float: left;
+	width: 50px;
+}
+
+linkedin-originalUpdate-content {
+	margin-left: 50px;
+}
+
 .input-group {
 	margin: 0 auto;
 	max-width: 350px;

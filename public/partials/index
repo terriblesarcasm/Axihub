@@ -150,7 +150,7 @@
                 <a ng-href="{{ post.updateContent.person.siteStandardProfileRequest.url }}">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> likes:
                 <div class='linkedin-originalUpdate'>
                   <div class='linkedin-originalUpdate-profile-img'>
-                    <img ng-src='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.pictureUrl }}'>
+                    <img class='img-rounded linkedin-profile-image' ng-src='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.pictureUrl }}'>
                   </div>
                   <div class='linkedin-originalUpdate-content'>
                     <a ng-href='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.siteStandardProfileRequest.url }}'>{{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.firstName }} {{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.lastName }}</a> {{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.comment }}
