@@ -21,7 +21,7 @@
 		</div> -->
 
 		<img class='img-responsive' ng-src='/img/social_icons.jpg'>
-		<p>And 50+ More*</p>
+		<strong>And 50+ More*</strong>
 	</div>
 	<div class='disclaimer'>
 		<small>*coming soon</small>
