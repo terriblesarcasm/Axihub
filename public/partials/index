@@ -103,8 +103,12 @@
               <div ng-if='post.status_type!="shared_story" && post.story'>
                 <div class='content'>
                   <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
-                  {{ post.story }}
-                  {{ post.message }}
+                  <div class="facebook-story">
+                    {{ post.story }}
+                  </div>
+                  <div class="facebook-message">
+                    {{ post.message }}
+                  </div>
                   <div ng-if="post.picture">
                     <a ng-href="{{post.link}}"><img ng-src="{{post.picture}}"></a>
                   </div>
