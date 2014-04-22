@@ -175,9 +175,12 @@
                   </div>
                   <div class='facebook-shared-link-content'>
                     <strong>{{post.name}}</strong>
-                    {{post.caption}}
-
-                    {{post.description}}
+                    <div class="facebook-caption">
+                      {{post.caption}}
+                    </div>
+                    <div class="facebook-description">
+                      {{post.description}}
+                    </div>
                   </div>
                 </div>
                 <footer>
@@ -195,8 +198,9 @@
                   </div>
                   <div class='facebook-shared-link-content'>
                     <strong>{{post.name}}</strong>
-
-                    {{post.description}}
+                    <div class="facebook-description">
+                      {{post.description}}
+                    </div>
                   </div>
                 </div>
                 <footer>
