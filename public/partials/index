@@ -82,19 +82,75 @@
               <img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'>
             </div>
 
-            <div class='content'>
-              <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
-              <div ng-if="post">
-                <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+            <div ng-if='post.type=="photo"'>
+              <div ng-if='post.status_type="added_photos"'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
+                  <div ng-if="post.message">
+                    <p class='facebook-message'>{{ post.message }}</p>
+                  </div>
+                  <div ng-if="post.link">
+                    <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
               </div>
 
-              <div ng-if="post.message">
-                <p class='facebook-message'>{{ post.message }}</p>
-              </div>
+              <div ng-if='post.status_type="shared_story"'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a> shared <a ng-href="//www.facebook.com/{{post.properties.href}}">{{post.properties.text}}</a>'s <a ng-href="{{post.link}}">photo</a>
+                  <div ng-if="post.caption">
+                    <p class='facebook-caption'>{{ post.caption }}</p>
+                  </div>
 
-              <footer>
-                <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
-              </footer>
+                  <div ng-if="post.link">
+                    <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+            </div>
+
+            <div ng-if='post.type=="status"'>
+              <div class='content'>
+                <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
+                <div ng-if="post.link && post.picture">
+                  <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                </div>
+
+                <div ng-if="post.message">
+                  <p class='facebook-message'>{{ post.message }}</p>
+                </div>
+
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </footer>
+              </div>
+            </div>
+
+            <div ng-if='post.type=="link"'>
+              <div class='content'>
+                <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a> shared a <a ng-href="{{post.link}}">link</a>
+                <div ng-if="post.picture">
+                  <div class='facebook-shared-link-picture'>
+                    <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+                  <div class='facebook-shared-link-content'>
+                    <strong>{{post.name}}</strong>
+                    {{post.caption}}
+
+                    {{post.description}}
+                  </div>
+                </div>
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </footer>
+              </div>
             </div>
           </div>
 
