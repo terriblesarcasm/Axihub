@@ -5,7 +5,7 @@
 
 
 <div class="container">
-	<div class='main' style='height: 100%;'>
+	<div class='main' style='min-height: 90%;'>
 		<h4>{{ user.name }}'s accounts</h4>
 
 		<div class='accounts' ng-repeat="account in user.accounts">
@@ -21,7 +21,7 @@
 		</div> -->
 
 		<img class='img-responsive' ng-src='/img/social_icons.jpg'>
-		<p>And 50+ More*</p>
+		<strong>And 50+ More*</strong>
 	</div>
 	<div class='disclaimer'>
 		<small>*coming soon</small>

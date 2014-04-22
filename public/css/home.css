@@ -21,9 +21,11 @@ div.title {
 	text-align: center;
 }
 
-h2, h3, h4, .accounts, .networks, .nonetworks {
+h2, h3, h4, p, small, strong, .accounts, .networks, .nonetworks, .main, .disclaimer {
 	text-align: center;
 }
+
+
 
 @media only screen and (max-width: 720px) {
 	img { max-width: 100%; }
