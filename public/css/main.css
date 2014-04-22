@@ -56,6 +56,16 @@ body {
 	margin-left: 55px;
 }
 
+.facebook-shared-link-picture {
+	float: left;
+	max-width: 30%;
+	width: 80px;
+}
+
+.facebook-shared-link-content {
+	margin-left: 80px;
+}
+
 .input-group {
 	margin: 0 auto;
 	max-width: 350px;
