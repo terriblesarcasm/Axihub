@@ -150,26 +150,6 @@
 
             <div ng-if='post.type=="link"'>
               <div class='content'>
-                <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
-                {{post.message}}
-                <div ng-if="post.icon">
-                  <div class='facebook-shared-link-picture'>
-                    <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.icon }}" /></a>
-                  </div>
-                  <div class='facebook-shared-link-content'>
-                    <strong>{{post.name}}</strong>
-
-                    {{post.description}}
-                  </div>
-                </div>
-                <footer>
-                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
-                </footer>
-              </div>
-            </div>
-
-            <div ng-if='post.type=="video"'>
-              <div class='content'>
                 <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a> shared a <a ng-href="{{post.link}}">link</a>
                 {{post.message}}
                 <div ng-if="post.picture">
@@ -192,9 +172,9 @@
             <div ng-if='post.type=="video"'>
               <div class='content'>
                 <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
-                <div ng-if="post.icon">
+                <div ng-if="post.picture">
                   <div class='facebook-shared-link-picture'>
-                    <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.icon }}" /></a>
+                    <a ng-href="{{ post.link }}"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
                   </div>
                   <div class='facebook-shared-link-content'>
                     <strong>{{post.name}}</strong>
