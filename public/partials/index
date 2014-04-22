@@ -85,7 +85,7 @@
             </div>
 
             <div ng-if='post.type=="photo"'>
-              <div ng-if='post.status_type=="added_photos" || post.status.type=="mobile_status_update" && !post.story'>
+              <div ng-if='(post.status_type=="added_photos" || post.status.type=="mobile_status_update") && !post.story'>
                 <div class='content'>
                   <a ng-href="//www.facebook.com/{{post.from.id}}">{{ post.from.name }}</a>
                   <div ng-if="post.message">
