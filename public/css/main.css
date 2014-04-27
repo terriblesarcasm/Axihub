@@ -130,6 +130,33 @@ footer {
 }
 
 
+/***************************************************
+************	Mobile Ribbons		****************
+***************************************************/
+
+.mobile-ribbon {
+	position: relative;
+	max-width: 35px;
+	min-width: 30px;
+	font-size: 0.85em;
+	font-weight: bold;
+	padding: 3px;
+	margin: 0px 2px 0px 5px;
+	color: #FFF;
+	background-color: #999;
+	text-shadow: 0px 1px 2px #bbb;
+	-webkit-box-shadow: 0px 2px 4px #888;
+	-moz-box-shadow: 0px 2px 4px #888;
+	box-shadow: 0px 2px 4px #888;
+	float: right;
+	border-radius: 2px;
+}
+
+.mobile-ribbon img {
+	height: 20px;
+}
+
+
 /*********************************************
 ************	Ribbons		******************
 *********************************************/
@@ -182,32 +209,6 @@ footer {
 
 .ribbon-linkedin {
 	background-color: #007bb6;
-}
-
-/***************************************************
-************	Mobile Ribbons		****************
-***************************************************/
-
-.mobile-ribbon {
-	position: relative;
-	width: 12%;
-	min-width: 65px;
-	font-size: 0.85em;
-	font-weight: bold;
-	padding: 3px 0px 3px 5px;
-	margin: 0px 2px 0px 5px;
-	color: #FFF;
-	background-color: #999;
-	text-shadow: 0px 1px 2px #bbb;
-	-webkit-box-shadow: 0px 2px 4px #888;
-	-moz-box-shadow: 0px 2px 4px #888;
-	box-shadow: 0px 2px 4px #888;
-	float: right;
-	border-radius: 2px;
-}
-
-.mobile-ribbon img {
-	height: 30px;
 }
 
 
