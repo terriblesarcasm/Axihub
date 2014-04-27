@@ -32,55 +32,6 @@ body {
 	text-align: center;
 }
 
-.ribbon {
-	position: relative;
-	width: 12%;
-	font-size: 0.85em;
-	font-weight: bold;
-	padding: 6px 30px 6px 20px;
-	margin: 0px -10px 10px 10px;
-	color: #FFF;
-	background-color: #999;
-	text-shadow: 0px 1px 2px #bbb;
-	-webkit-box-shadow: 0px 2px 4px #888;
-	-moz-box-shadow: 0px 2px 4px #888;
-	box-shadow: 0px 2px 4px #888;
-	float: right;
-}
-
-.ribbon:after {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	right: 0px;
-	top: 100%;
-	border-width: 5px 5px;
-	border-style: solid;
-	border-color: #666 transparent transparent #666;
-}
-
-.ribbon:before {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: -2px;
-	top: 0px;
-	border-color: transparent #fff transparent transparent;
-}
-
-.ribbon-facebook {
-	background-color: #3b5998;
-}
-
-.ribbon-twitter {
-	background-color: #00aced;
-}
-
-.ribbon-linkedin {
-	background-color: #007bb6;
-}
 
 .top button {
 	margin: 0 5px;
@@ -177,6 +128,88 @@ footer {
 	height: 1px; 
 	overflow: hidden;
 }
+
+
+/*********************************************
+************	Ribbons		******************
+*********************************************/
+
+.ribbon {
+	position: relative;
+	width: 12%;
+	font-size: 0.85em;
+	font-weight: bold;
+	padding: 6px 30px 6px 20px;
+	margin: 0px -10px 10px 10px;
+	color: #FFF;
+	background-color: #999;
+	text-shadow: 0px 1px 2px #bbb;
+	-webkit-box-shadow: 0px 2px 4px #888;
+	-moz-box-shadow: 0px 2px 4px #888;
+	box-shadow: 0px 2px 4px #888;
+	float: right;
+}
+
+.ribbon:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 0px;
+	top: 100%;
+	border-width: 5px 5px;
+	border-style: solid;
+	border-color: #666 transparent transparent #666;
+}
+
+.ribbon:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -2px;
+	top: 0px;
+	border-color: transparent #fff transparent transparent;
+}
+
+.ribbon-facebook {
+	background-color: #3b5998;
+}
+
+.ribbon-twitter {
+	background-color: #00aced;
+}
+
+.ribbon-linkedin {
+	background-color: #007bb6;
+}
+
+/***************************************************
+************	Mobile Ribbons		****************
+***************************************************/
+
+.mobile-ribbon {
+	position: relative;
+	width: 12%;
+	min-width: 65px;
+	font-size: 0.85em;
+	font-weight: bold;
+	padding: 3px 0px 3px 5px;
+	margin: 0px 2px 0px 5px;
+	color: #FFF;
+	background-color: #999;
+	text-shadow: 0px 1px 2px #bbb;
+	-webkit-box-shadow: 0px 2px 4px #888;
+	-moz-box-shadow: 0px 2px 4px #888;
+	box-shadow: 0px 2px 4px #888;
+	float: right;
+	border-radius: 2px;
+}
+
+.mobile-ribbon img {
+	height: 30px;
+}
+
 
 
 /************************************

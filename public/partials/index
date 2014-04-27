@@ -28,7 +28,8 @@
 
 
           <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
-            <div class='ribbon ribbon-twitter'>Twitter</div>
+            <div class='ribbon ribbon-twitter hidden-xs'>Twitter</div>
+            <div class='mobile-ribbon ribbon-twitter visible-xs'><img ng-src='../img/twitter-mobile-ribbon.png'></div>
             <div ng-if="post.retweeted_status">
               <div class='context'>
                 <div class='retweet-icon'>
@@ -81,7 +82,8 @@
 
 
           <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
-            <div class='ribbon ribbon-facebook'>Facebook</div>
+            <div class='ribbon ribbon-facebook hidden-xs'>Facebook</div>
+            <div class='mobile-ribbon ribbon-facebook visible-xs'><img ng-src='../img/fb-mobile-ribbon.png'></div>
 
             <div class='context'>
               <img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'>
@@ -215,7 +217,8 @@
 
 
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
-            <div class='ribbon ribbon-linkedin'>LinkedIn</div>
+            <div class='ribbon ribbon-linkedin hidden-xs'>LinkedIn</div>
+            <div class='mobile-ribbon ribbon-linkedin visible-xs'><img ng-src='../img/linkedin-mobile-ribbon.png'></div>
 
             <div ng-if="post.updateType=='JGRP'">
               <div class='context'>
