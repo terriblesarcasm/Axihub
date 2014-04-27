@@ -5,7 +5,7 @@
         <h2>{{ user.name }}'s Smart Feed</h2>    
         <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
         <button class="btn btn-success" ng-click="getSmartFeed()" >Get Your Feed</button>
-        <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Filter</button>
+        <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Search</button>
         <div class='search' collapse="isCollapsed">
           <div class='input-group'>
             <div class='input-group-btn'>
@@ -25,9 +25,10 @@
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
         <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
-          
+
 
           <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
+            <div class='ribbon ribbon-twitter'>Twitter</div>
             <div ng-if="post.retweeted_status">
               <div class='context'>
                 <div class='retweet-icon'>
@@ -80,6 +81,8 @@
 
 
           <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
+            <div class='ribbon ribbon-facebook'>Facebook</div>
+
             <div class='context'>
               <img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'>
             </div>
@@ -212,6 +215,8 @@
 
 
           <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
+            <div class='ribbon ribbon-linkedin'>LinkedIn</div>
+
             <div ng-if="post.updateType=='JGRP'">
               <div class='context'>
                 <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
