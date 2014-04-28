@@ -8,11 +8,22 @@
 
 .navbar {
 	margin-bottom: 0px;
+	border-color: #999999;
+}
+
+.navbar-brand {
+	margin-left: 5px;
 }
 
 nav div.container {
 	max-width: 960px;
 }
+
+button.navbar-toggle {
+	margin-right: 20px;
+}
+
+
 
 body {
 	background-color: #cccccc;
