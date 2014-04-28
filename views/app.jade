@@ -14,7 +14,7 @@ html(data-ng-app='myApp')
 		script(src='/js/angular-animate.min.js')
 
 	body
-	div(class="collapse navbar-collapse", ng-controller="HeaderController")
+	nav(class="collapse navbar-collapse", ng-controller="HeaderController")
 		ul(class="nav navbar-nav")
 			li(ng-class="{ active: isActive('/app')}"): a(ng-href="/") Feed
 			li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
