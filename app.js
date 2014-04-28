@@ -149,6 +149,9 @@ app.get('/authz/twitter/callback',
       res.redirect('/app');
     });
   });
+app.get('/account', function(req, res) {
+  res.redirect('/app');
+});
 app.get('/auth/github',
   passport.authenticate('github'),
   function(req, res){
