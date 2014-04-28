@@ -229,6 +229,13 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     ]
 });
 
+function HeaderController($scope, $location) 
+{ 
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+}
+
 window.fbAsyncInit = function() {
     FB.init({
         appId: '215752608621217'
