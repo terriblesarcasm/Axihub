@@ -6,6 +6,10 @@
 	padding: 0px;
 }
 
+.partials {
+	max-width: 960px;
+}
+
 .navbar {
 	margin-bottom: 0px;
 	border-color: #999999;
@@ -22,8 +26,6 @@ nav div.container {
 button.navbar-toggle {
 	margin-right: 20px;
 }
-
-
 
 body {
 	background-color: #cccccc;

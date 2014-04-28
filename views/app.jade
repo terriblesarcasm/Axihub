@@ -14,18 +14,18 @@ html(data-ng-app='myApp')
 		script(src='/js/angular-animate.min.js')
 
 	body
-	nav(class="navbar navbar-default", role="navigation")
-		div(class="container")
-			div(class="navbar-header")
-				button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
-					span(class="sr-only") Toggle navigation
-					span(class="icon-bar")
-					span(class="icon-bar")
-					span(class="icon-bar")
-				a(class="navbar-brand") Axihub
-			div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1", ng-controller="HeaderController")
-				ul(class="nav navbar-nav")
-					li(ng-class="{ active: isActive('/app')}"): a(ng-href="/") Feed
-					li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
+		nav(class="navbar navbar-default", role="navigation")
+			div(class="container")
+				div(class="navbar-header")
+					button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
+						span(class="sr-only") Toggle navigation
+						span(class="icon-bar")
+						span(class="icon-bar")
+						span(class="icon-bar")
+					a(class="navbar-brand") Axihub
+				div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1", ng-controller="HeaderController")
+					ul(class="nav navbar-nav")
+						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/") Feed
+						li(ng-class="{ active: isActive('/account')} navbar-right"): a(ng-href="/account") Account
 
-	div(ng-view, ng-controller='MainCtrl', ng-init="user=#{JSON.stringify(user)}; ordervar='axihubtime'; filtervar=''")
+		div(class="partials", ng-view, ng-controller='MainCtrl', ng-init="user=#{JSON.stringify(user)}; ordervar='axihubtime'; filtervar=''")
