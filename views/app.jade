@@ -13,5 +13,10 @@ html(data-ng-app='myApp')
 		script(src='/js/ui-bootstrap-0.10.0.min.js')
 		script(src='/js/angular-animate.min.js')
 
-	body(ng-controller='MainCtrl', ng-init="user=#{JSON.stringify(user)}; ordervar='axihubtime'; filtervar=''")
-	div(ng-view)
+	body
+	div(class="collapse navbar-collapse", ng-controller="HeaderController")
+		ul(class="nav navbar-nav")
+			li(ng-class="{ active: isActive('/')}"): a(ng-href="/")Feed
+			li(ng-class="{ active: isActive('/')}"): a(ng-href="/account")Account
+
+	div(ng-view, ng-controller='MainCtrl', ng-init="user=#{JSON.stringify(user)}; ordervar='axihubtime'; filtervar=''")
