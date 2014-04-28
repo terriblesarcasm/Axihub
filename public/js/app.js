@@ -200,13 +200,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         return 'auth/' + domain[0];
     }
 
-    $scope.getLinkedInFeed = function() {
-        LinkedIn.getfeed().then(function(feed) {
-            console.log(feed);
-            $scope.LinkedIn.feed = feed;
-        });
-    }
-
     $scope.isCollapsed = true;
     $scope.search = {
         display: 'Provider',
@@ -227,6 +220,14 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
             placeholder: 'e.g. Names, Keywords, etc'
         }
     ]
+
+    var init = function() {
+        Smart.getfeed($scope.user).then(function(feed) {
+            $scope.Smart.feed = feed;
+        });
+    }
+
+    init();
 });
 
 function HeaderController($scope, $location) 
