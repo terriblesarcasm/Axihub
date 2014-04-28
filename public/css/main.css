@@ -8,6 +8,9 @@
 
 .navbar {
 	margin-bottom: 0px;
+	border-radius: 0px;
+	max-width: 960px;
+	margin: 0 auto;
 	border-color: #999999;
 }
 
