@@ -6,6 +6,10 @@
 	padding: 0px;
 }
 
+.partials {
+	max-width: 960px;
+}
+
 .navbar {
 	margin-bottom: 0px;
 	border-color: #999999;
