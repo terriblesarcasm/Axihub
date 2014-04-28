@@ -206,9 +206,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 function HeaderController($scope, $location) 
 { 
     $scope.isActive = function (viewLocation) { 
-        console.log('viewLocation: ' + viewLocation + ' $location.path: ' + $location.path());
         return viewLocation === $location.path();
-
     };
 }
 
