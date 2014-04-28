@@ -6,6 +6,10 @@
 	padding: 0px;
 }
 
+.navbar {
+	margin-bottom: 0px;
+}
+
 body {
 	background-color: #cccccc;
 }
