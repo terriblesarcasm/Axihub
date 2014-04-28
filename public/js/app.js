@@ -1,31 +1,11 @@
 var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
-.factory('Facebook', function($rootScope, $q) {
+.factory('Facebook', function ($http, $q) {
     return {
-        login: function() {
-            var deferred = $q.defer();
-
-            FB.login(function(response) {
-                deferred.resolve(response.authResponse);
-            });
-
-            return deferred.promise;
-        },
-
-        logout: function() {
-            var deferred = $q.defer();
-
-            FB.logout(function(response) {
-                deferred.resolve(response.authResponse);
-            });
-
-            return deferred.promise;
-        },
-
         getfeed: function() {
             var deferred = $q.defer();
 
-            FB.api('/me/home', function(response) {
+            $http.get('/facebook/api').success(function(response) {
                 deferred.resolve(response.data);
             });
 
@@ -221,13 +201,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         }
     ]
 
-    var init = function() {
-        Smart.getfeed($scope.user).then(function(feed) {
-            $scope.Smart.feed = feed;
-        });
-    }
-
-    init();
 });
 
 function HeaderController($scope, $location) 
@@ -238,21 +211,6 @@ function HeaderController($scope, $location)
 
     };
 }
-
-window.fbAsyncInit = function() {
-    FB.init({
-        appId: '215752608621217'
-    });
-};
-
-// Load the SDK Asynchronously
-(function(d){
-    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    ref.parentNode.insertBefore(js, ref);
-}(document));
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);

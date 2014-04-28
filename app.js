@@ -10,6 +10,7 @@ var passport = require('passport');
 var auth = require('./authentication.js');
 var twitterAPI = require('node-twitter-api');
 var request = require('request');
+var graph = require('fbgraph');
 
 var twitter = new twitterAPI({
   consumerKey: config.twitter.consumerKey,
@@ -175,6 +176,8 @@ app.get('/twitter/api', callTwitterApi);
 
 app.get('/linkedin/api', callLinkedInApi);
 
+app.get('/facebook/api', callFacebookApi);
+
 // port
 app.listen(config.port);
 
@@ -215,8 +218,6 @@ function callLinkedInApi(req, res, next) {
   var accessToken = linkedinacc.tokens[0].accessToken;
   var accessTokenSecret = linkedinacc.tokens[0].attributes.refreshToken;
 
-  console.log('access token is: ' + accessToken);
-  
   request.get('https://api.linkedin.com/v1/people/~/network/updates?format=json&count=25&oauth2_access_token='+accessToken, function (error, response, body) {
     if (!error) {
       //console.log(body);
@@ -226,6 +227,20 @@ function callLinkedInApi(req, res, next) {
       res.send(error);
     }
   });
+}
+
+function callFacebookApi(req, res, next) {
+  var user = req.user;
+  var accounts = user.accounts;
+  var fbacc = findAccount(accounts, "facebook.com");
+
+  var accessToken = fbacc.tokens[0].accessToken;
+
+  graph.setAccessToken(accessToken);
+
+  graph.get('/me/home', function(err, response) {
+    res.send(response);
+  })
 }
 
 function findAccount(accounts, provider) {
