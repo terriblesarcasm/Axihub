@@ -201,6 +201,14 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         }
     ]
 
+    var init = function() {
+        Smart.getfeed($scope.user).then(function(feed) {
+            $scope.Smart.feed = feed;
+        });
+    }
+
+    init();
+
 });
 
 function HeaderController($scope, $location) 
