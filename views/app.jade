@@ -17,13 +17,13 @@ html(data-ng-app='myApp')
 		nav(class="navbar navbar-default", role="navigation")
 			div(class="container")
 				div(class="navbar-header")
-					button(type="button", class="navbar-toggle", ng-click="isCollapsed = !isCollapsed", data-target=".navbar-collapse")
+					button(type="button", class="navbar-toggle", ng-click="isCollapsed = !isCollapsed")
 						span(class="sr-only") Toggle navigation
 						span(class="icon-bar")
 						span(class="icon-bar")
 						span(class="icon-bar")
 					a(class="navbar-brand") Axihub
-				div(class="collapse navbar-collapse", collapse="isCollapsed",ng-controller="HeaderController")
+				div(collapse="isCollapsed", ng-controller="HeaderController")
 					ul(class="nav navbar-nav")
 						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app") Feed
 						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
