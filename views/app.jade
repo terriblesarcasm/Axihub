@@ -33,5 +33,5 @@ html(data-ng-app='myApp')
 							ul(class="dropdown-menu")
 								li(ng-repeat="choice in dropdown")
 									a(ng-click="search.param=choice.param; search.display=choice.display; search.placeholder=choice.placeholder") {{choice.display}}
-						input(ng-model='search.term[search.param]', placeholder='{{search.placeholder}}', name='anim', class="my-input form-control")
-		div(ng-view, ng-init="ordervar='axihubtime'; filtervar=''")
+						input(ng-model='search.term[search.param]', ng-change='setSearch(search)', placeholder='{{search.placeholder}}', name='anim', class="my-input form-control")
+		div(ng-view, ng-init="")

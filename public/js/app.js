@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap', 'ngAnimate'])
+var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
 .factory('Facebook', function ($http, $q) {
     return {
@@ -80,6 +80,22 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
             return deferred.promise;
         }
     }
+})
+
+.service('navsearch', function() {
+    var myObj = {
+        search:{
+          display: 'Provider',
+          param: 'name',
+          term: {},
+          placeholder: 'e.g. facebook.com'
+        },
+        setSearch:function(newObj) {
+          angular.copy(newObj,myObj.search)
+          console.log(myObj.search);
+        }
+    }
+    return myObj;
 })
 
 
@@ -169,11 +185,13 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
   }
 })
 
-.value('User', window.user)
-
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope, navsearch) {
 
     $scope.user = $rootScope.user;
+
+    $scope.init = {
+        ordervar: 'axihubtime'
+    }
     
     $scope.getSmartFeed = function() {
         Smart.getfeed($scope.user).then(function(feed) {
@@ -186,26 +204,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         return 'auth/' + domain[0];
     }
 
-    $scope.isCollapsed = true;
-    $scope.search = {
-        display: 'Provider',
-        param: 'axihubprovider',
-        term: {},
-        placeholder: 'e.g. facebook.com'
-    }
-
-    $scope.dropdown = [
-        { 
-            display: 'Provider', 
-            param: 'axihubprovider',
-            placeholder: 'e.g. facebook.com'
-        },
-        {
-            display: 'Entire Feed',
-            param: '$',
-            placeholder: 'e.g. Names, Keywords, etc'
-        }
-    ]
+    $scope.search = navsearch.search;
 
      var init = function() {
         Smart.getfeed($scope.user).then(function(feed) {
@@ -217,7 +216,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 })
 
-.controller('HeaderController', function ($scope, $location) 
+.controller('HeaderController', function ($scope, $location, navsearch) 
 { 
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
@@ -229,6 +228,8 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         term: {},
         placeholder: 'e.g. facebook.com'
     }
+
+    $scope.setSearch = navsearch.setSearch;
 
     $scope.dropdown = [
         { 

@@ -5,7 +5,7 @@
         <h2>{{ user.name }}'s Smart Feed</h2>    
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
-        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
+        <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:init.ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
 
 
           <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
