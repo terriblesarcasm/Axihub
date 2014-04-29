@@ -29,6 +29,6 @@ html(data-ng-app='myApp')
 						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
 
 		script.
-			window.user = "#{JSON.stringify(user)}";
+			window.user = JSON.stringify("#{user}");
 			console.log('window.user: '+window.user);
 		div(ng-view, ng-controller='MainCtrl', ng-init="ordervar='axihubtime'; filtervar=''")
