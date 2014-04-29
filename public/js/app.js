@@ -166,12 +166,12 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
   }
 })
 
-.value('user', window.user)
+.value('User', window.user)
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, user) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User) {
 
-    console.log('user: '+user);
-    $scope.user = user;
+    console.log('user: '+User);
+    $scope.user = User;
     
     $scope.getSmartFeed = function() {
         Smart.getfeed($scope.user).then(function(feed) {
