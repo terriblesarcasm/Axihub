@@ -85,10 +85,10 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 .service('navsearch', function() {
     var myObj = {
         search:{
-          display: 'Provider',
+          display: 'Site',
           param: 'name',
           term: {},
-          placeholder: 'e.g. facebook.com'
+          placeholder: 'Search eg. Facebook.com'
         },
         setSearch:function(newObj) {
           angular.copy(newObj,myObj.search)
@@ -223,24 +223,24 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     };
 
     $scope.search = {
-        display: 'Provider',
+        display: 'Site',
         param: 'axihubprovider',
         term: {},
-        placeholder: 'e.g. facebook.com'
+        placeholder: 'Search eg. Facebook.com'
     }
 
     $scope.setSearch = navsearch.setSearch;
 
     $scope.dropdown = [
         { 
-            display: 'Provider', 
+            display: 'Site', 
             param: 'axihubprovider',
-            placeholder: 'e.g. facebook.com'
+            placeholder: 'Search eg. Facebook.com'
         },
         {
             display: 'Entire Feed',
             param: '$',
-            placeholder: 'e.g. Names, Keywords, etc'
+            placeholder: 'Search everything'
         }
     ]
 });
