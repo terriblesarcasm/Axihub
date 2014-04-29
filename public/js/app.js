@@ -242,7 +242,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
             placeholder: 'e.g. Names, Keywords, etc'
         }
     ]
-}
+});
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
