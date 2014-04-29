@@ -27,9 +27,9 @@ nav div.container {
 	padding-right: 0px;
 }
 
-.search-button {
-	margin-top: 6px;
-	margin-bottom: 6px;
+.search-btn {
+	margin-top: 6px !important;
+	margin-bottom: 6px !important;
 }
 
 button.navbar-toggle {
