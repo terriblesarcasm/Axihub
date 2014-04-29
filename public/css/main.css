@@ -22,6 +22,16 @@ nav div.container {
 	max-width: 960px;
 }
 
+.navbar-form {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.input-group-btn {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
 button.navbar-toggle {
 	margin-right: 20px;
 }
