@@ -262,13 +262,3 @@ footer {
     top: -50px;
     height: 0px;
 }
-
-.my-input {
-	-webkit-transition:all linear 0.5s;
-	transition:all linear 0.5s;
-	background: transparent;
-}
-.my-input.ng-invalid {
-	color: white;
-	background: red;
-}
