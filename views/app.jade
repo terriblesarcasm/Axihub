@@ -28,4 +28,6 @@ html(data-ng-app='myApp')
 						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app") Feed
 						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
 
-		div(ng-view, ng-controller='MainCtrl', ng-init="user=#{JSON.stringify(user)}; ordervar='axihubtime'; filtervar=''")
+		script.
+			window.user = "#{JSON.stringify(user)}";
+		div(ng-view, ng-controller='MainCtrl', ng-init="ordervar='axihubtime'; filtervar=''")
