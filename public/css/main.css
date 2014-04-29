@@ -33,7 +33,7 @@ nav div.container {
 }
 
 .search-input {
-	width: 100%;
+	width: 100% !important;
 }
 
 button.navbar-toggle {

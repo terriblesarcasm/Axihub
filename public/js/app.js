@@ -229,6 +229,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         placeholder: 'Search eg. Facebook.com'
     }
 
+    $scope.isCollapsed = true;
     $scope.setSearch = navsearch.setSearch;
 
     $scope.dropdown = [
