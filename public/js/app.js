@@ -171,7 +171,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 .value('User', window.user)
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope, HeaderController) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope) {
 
     $scope.user = $rootScope.user;
     
