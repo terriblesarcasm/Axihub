@@ -83,14 +83,14 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 })
 
 
-.run(function ($rootScope, Facebook, Twitter, Smart, LinkedIn, $http, $scope) {
+.run(function ($rootScope, Facebook, Twitter, Smart, LinkedIn, $http) {
     $rootScope.Facebook = Facebook;
     $rootScope.Twitter = Twitter;
     $rootScope.Smart = Smart;
     $rootScope.LinkedIn = LinkedIn;
     $http.get('/get/user').success(function(response) {
-        $scope.user = response;
-        $scope.init();
+        $rootScope.user = response;
+        console.log($rootScope.user);
     });
 })
 
