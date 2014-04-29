@@ -171,7 +171,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 .value('User', window.user)
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope, HeaderController) {
 
     $scope.user = $rootScope.user;
     
@@ -222,6 +222,26 @@ function HeaderController($scope, $location)
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };
+
+    $scope.search = {
+        display: 'Provider',
+        param: 'axihubprovider',
+        term: {},
+        placeholder: 'e.g. facebook.com'
+    }
+
+    $scope.dropdown = [
+        { 
+            display: 'Provider', 
+            param: 'axihubprovider',
+            placeholder: 'e.g. facebook.com'
+        },
+        {
+            display: 'Entire Feed',
+            param: '$',
+            placeholder: 'e.g. Names, Keywords, etc'
+        }
+    ]
 }
 
 String.prototype.capitalize = function() {

@@ -27,7 +27,7 @@ html(data-ng-app='myApp')
 					ul(class="nav navbar-nav")
 						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app") Feed
 						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
-					div(class='input-group')
+					div(class='input-group navbar-right')
 						div(class='input-group-btn')
 							button(type="button", class="btn btn-default dropdown-toggle", data-toggle="dropdown") {{ search.display }} <span class="caret"></span>
 							ul(class="dropdown-menu")
