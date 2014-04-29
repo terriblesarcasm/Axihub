@@ -170,6 +170,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 .controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, user) {
 
+    console.log('user: '+user);
     $scope.user = user;
     
     $scope.getSmartFeed = function() {
