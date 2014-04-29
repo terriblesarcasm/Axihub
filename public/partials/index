@@ -3,8 +3,6 @@
     <div class="app">
       <div class="top">
         <h2>{{ user.name }}'s Smart Feed</h2>    
-        <a ng-href="account"><button class="btn btn-primary">Accounts</button></a>
-        <button class="btn btn-success" ng-click="getSmartFeed()" >Get Your Feed</button>
         <button class="btn btn-primary" ng-click="isCollapsed = !isCollapsed">Search</button>
         <div class='search' collapse="isCollapsed">
           <div class='input-group'>
@@ -19,9 +17,6 @@
             <input ng-model='search.term[search.param]' placeholder='{{search.placeholder}}' name='anim' class='my-input form-control'>
           </div> <!-- /input-group -->
         </div>
-        <h4>
-          Hello, {{ user.name }}!
-        </h4>
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
         <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
