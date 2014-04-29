@@ -32,6 +32,10 @@ nav div.container {
 	margin-bottom: 6px !important;
 }
 
+.search-input {
+	width: 100%;
+}
+
 button.navbar-toggle {
 	margin-right: 20px;
 }
