@@ -90,7 +90,6 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     $rootScope.LinkedIn = LinkedIn;
     $http.get('/get/user').success(function(response) {
         $rootScope.user = response;
-        console.log($rootScope.user);
     });
 })
 
@@ -172,10 +171,9 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 .value('User', window.user)
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q) {
 
-    console.log('user: '+User);
-    $scope.user = User;
+    $scope.user = $rootScope.user;
     
     $scope.getSmartFeed = function() {
         Smart.getfeed($scope.user).then(function(feed) {
@@ -209,12 +207,13 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         }
     ]
 
-    $scope.init = function() {
-        console.log($scope.user);
+     var init = function() {
         Smart.getfeed($scope.user).then(function(feed) {
             $scope.Smart.feed = feed;
         });
     }
+
+    init();
 
 });
 
