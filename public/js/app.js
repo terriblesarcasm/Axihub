@@ -168,7 +168,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
 .value('User', window.user)
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User) {
+.controller('MainCtrl', ['User', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User) {
 
     console.log('user: '+User);
     $scope.user = User;
@@ -214,7 +214,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
 
     init();
 
-});
+}]);
 
 function HeaderController($scope, $location) 
 { 
