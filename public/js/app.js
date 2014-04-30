@@ -19,7 +19,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
     return { 
         setuser: function() {
-            $http.get('/get/user').then(function(response) {
+            return $http.get('/get/user').then(function(response) {
                 user = response.data;
                 return user;
             });
