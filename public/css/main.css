@@ -22,6 +22,10 @@ nav div.container {
 	max-width: 960px;
 }
 
+/************	navbar css for extra small only **************/
+
+
+/************	navbar css for small and above *********/
 .navbar-form {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -39,6 +43,8 @@ nav div.container {
 button.navbar-toggle {
 	margin-right: 20px;
 }
+
+
 
 body {
 	background-color: #cccccc;
