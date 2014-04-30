@@ -200,7 +200,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 .controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User, navsearch) {
 
     User.setuser().then(function(response) {
-        $scope.user = response;
+       $scope.user = response;
         $scope.init = {
             ordervar: 'axihubtime'
         }
