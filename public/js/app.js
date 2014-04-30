@@ -193,8 +193,10 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
     getUser.getuser().then(function(response) {
         $scope.user = response;
+        console.log('scope.user: ' + $scope.user + ' response: ' + response);
     }).
     then(function() {
+        console.log('in the .then scope.user: ' + $scope.user);
         Smart.getfeed($scope.user).then(function(feed) {
             $scope.Smart.feed = feed;
         });
