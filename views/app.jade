@@ -30,11 +30,10 @@ html(data-ng-app='myApp')
 						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app") Feed
 						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
 					div(class='input-group navbar-right')
-						div(class='input-group-btn')
-							button(type="button", class="search-btn btn btn-default dropdown-toggle", data-toggle="dropdown") {{ search.display }} <span class="caret"></span>
+						form(class='navbar-form')
+							button(type="button", class="input-group-btn search-btn btn btn-default dropdown-toggle", data-toggle="dropdown") {{ search.display }} <span class="caret"></span>
 							ul(class="dropdown-menu")
 								li(ng-repeat="choice in dropdown")
 									a(ng-click="search.param=choice.param; search.display=choice.display; search.placeholder=choice.placeholder") {{choice.display}}
-						form(class='navbar-form')
 							input(ng-model='search.term[search.param]', ng-change='setSearch(search)', placeholder='{{search.placeholder}}', name='anim', type="search", class="form-control search-input")
 		div(ng-view)
