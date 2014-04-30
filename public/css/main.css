@@ -49,21 +49,13 @@ nav div.container {
 	}
 
 	.navbar-form {
-		padding-left: 0px !important;
-		padding-right: 0px !important;
-	}
-
-	.search-btn {
-		margin-top: 6px !important;
-		margin-bottom: 6px !important;
+		padding-left: 0px;
+		padding-right: 0px;
+		margin-top: 6px;
 	}
 
 	.search-input {
 		width: 100% !important;
-	}
-
-	button.navbar-toggle {
-		margin-right: 20px;
 	}
 }
 
