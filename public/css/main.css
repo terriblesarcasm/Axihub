@@ -21,53 +21,48 @@
 nav div.container {
 	max-width: 960px;
 }
-/*
-	/************	navbar css for extra small only *************
-	@media (max-width: @screen-xs-max) { 
-		.navbar-form {
-			margin-left: 0px;
-			margin-right: 0px;
-			padding-top: 5px;
-			padding-left: 0px;
-			padding-right: 0px;
-		}
 
-		.search-btn {
-			margin-top: 6px !important;
-			margin-bottom: 6px !important;
-		}
+/************	navbar css for extra small only *************/
 
-		.search-input {
-			width: 100% !important;
-		}
+.input-group {
+	margin-bottom: 6px;
+}
 
-		button.navbar-toggle {
-			margin-right: 20px;
-		}
+.navbar-form {
+    border-bottom-width: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+    border-top-width: 0px;
+    margin-bottom: 0px;
+}
+
+
+/************	navbar css for small and above ********/
+@media (min-width: @screen-sm-min) { 
+	.input-group {
+		margin-bottom: 0px;
+	}
+	
+	.navbar-form {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 
-
-	/************	navbar css for small and above ********
-	@media (min-width: @screen-sm-min) { 
-		.navbar-form {
-			padding-left: 0px;
-			padding-right: 0px;
-		}
-
-		.search-btn {
-			margin-top: 6px !important;
-			margin-bottom: 6px !important;
-		}
-
-		.search-input {
-			width: 100% !important;
-		}
-
-		button.navbar-toggle {
-			margin-right: 20px;
-		}
+	.search-btn {
+		margin-top: 6px !important;
+		margin-bottom: 6px !important;
 	}
-*/
+
+	.search-input {
+		width: 100% !important;
+	}
+
+	button.navbar-toggle {
+		margin-right: 20px;
+	}
+}
+
 
 body {
 	background-color: #cccccc;
