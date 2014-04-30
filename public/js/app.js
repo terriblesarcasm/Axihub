@@ -193,7 +193,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
     getUser.getuser().then(function(response) {
         $scope.user = response;
-        console.log('scope.user.accounts: ' + $scope.user.accounts + ' response: ' + response);
+        console.log('scope.user.accounts: ' + $scope.user.accounts + ' response: ' + response[0]);
     }).
     then(function() {
         console.log('in the .then scope.user: ' + $scope.user);
