@@ -14,6 +14,13 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     }
 })
 
+.factory('getUser', function ($http, $q) {
+    return { 
+        getuser: function() {
+            return $http.get('/get/user');
+        }
+    }
+})
 
 .factory('Twitter', function ($http, $q) {
     return {
@@ -104,9 +111,6 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     $rootScope.Twitter = Twitter;
     $rootScope.Smart = Smart;
     $rootScope.LinkedIn = LinkedIn;
-    $http.get('/get/user').success(function(response) {
-        $rootScope.user = response;
-    });
 })
 
 
@@ -185,19 +189,26 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
   }
 })
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, $rootScope, navsearch) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, getUser, navsearch) {
 
-    $scope.user = $rootScope.user;
+    getUser.getuser().then(function(response) {
+        $scope.user = response;
+    }).
+    then(function() {
+        Smart.getfeed($scope.user).then(function(feed) {
+            $scope.Smart.feed = feed;
+        });
+    });
 
     $scope.init = {
         ordervar: 'axihubtime'
     }
     
-    $scope.getSmartFeed = function() {
-        Smart.getfeed($scope.user).then(function(feed) {
-            $scope.Smart.feed = feed;
-        });
-    }
+    // $scope.getSmartFeed = function() {
+    //     Smart.getfeed($scope.user).then(function(feed) {
+    //         $scope.Smart.feed = feed;
+    //     });
+    // }
 
     $scope.stripdotCom = function(network) {
         var domain = network.split(".");
