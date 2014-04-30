@@ -206,14 +206,6 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
     $scope.search = navsearch.search;
 
-     var init = function() {
-        Smart.getfeed($scope.user).then(function(feed) {
-            $scope.Smart.feed = feed;
-        });
-    }
-
-    init();
-
 })
 
 .controller('HeaderController', function ($scope, $location, navsearch) 
