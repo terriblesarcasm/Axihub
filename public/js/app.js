@@ -192,11 +192,9 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 .controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, getUser, navsearch) {
 
     getUser.getuser().then(function(response) {
-        $scope.user = response;
-        console.log('scope.user.accounts: ' + $scope.user.accounts + ' response: ' + response[0]);
+        $scope.user = response.data;
     }).
     then(function() {
-        console.log('in the .then scope.user: ' + $scope.user);
         Smart.getfeed($scope.user).then(function(feed) {
             $scope.Smart.feed = feed;
         });
