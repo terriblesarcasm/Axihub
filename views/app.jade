@@ -14,7 +14,7 @@ html(data-ng-app='myApp')
 		script(src='/js/angular-animate.min.js')
 
 	body
-		nav(class="navbar navbar-default", role="navigation")
+		nav(class="navbar navbar-default", role="navigation", ng-controller="HeaderController")
 			div(class="navbar-header")
 				button(type="button", class="navbar-toggle", ng-init="isCollapsed=true; console.log(isCollapsed);", ng-click="console.log('in ng-click'); isCollapsed = !isCollapsed")
 					span(class="sr-only") Toggle navigation
@@ -24,7 +24,7 @@ html(data-ng-app='myApp')
 				a(class="navbar-brand") Axihub
 
 			// This is for the nav links, forms, and other content that will be toggled
-			div(class="collapse navbar-collapse", ng-class="!isCollapsed && 'in'", ng-click="isCollapsed=true", ng-controller="HeaderController")
+			div(class="collapse navbar-collapse", ng-class="!isCollapsed && 'in'", ng-click="isCollapsed=true")
 				ul(class="nav navbar-nav")
 					li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app") Feed
 					li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account") Account
