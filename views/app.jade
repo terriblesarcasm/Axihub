@@ -16,7 +16,7 @@ html(data-ng-app='myApp')
 	body
 		nav(class="navbar navbar-default", role="navigation")
 			div(class="navbar-header")
-				button(type="button", class="navbar-toggle", ng-init="isCollapsed=true", ng-click="isCollapsed = !isCollapsed")
+				button(type="button", class="navbar-toggle", ng-init="isCollapsed=true; console.log(isCollapsed);", ng-click="console.log('in ng-click'); isCollapsed = !isCollapsed")
 					span(class="sr-only") Toggle navigation
 					span(class="icon-bar")
 					span(class="icon-bar")
