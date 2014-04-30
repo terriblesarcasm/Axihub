@@ -37,16 +37,20 @@ nav div.container {
     margin-bottom: 0px;
 }
 
+.navbar-collapse.in {
+    overflow-y: visible;
+}
+
 
 /************	navbar css for small and above ********/
 @media (min-width: @screen-sm-min) { 
 	.input-group {
 		margin-bottom: 0px;
 	}
-	
+
 	.navbar-form {
-		padding-left: 0px;
-		padding-right: 0px;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
 	}
 
 	.search-btn {
