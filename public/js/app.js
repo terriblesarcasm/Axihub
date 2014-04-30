@@ -14,10 +14,18 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     }
 })
 
-.factory('getUser', function ($http, $q) {
+.factory('User', function ($http) {
+    var user = {};
+
     return { 
+        setuser: function() {
+            $http.get('/get/user').then(function(response) {
+                user = response.data;
+                return user;
+            });
+        },
         getuser: function() {
-            return $http.get('/get/user');
+            return user;
         }
     }
 })
@@ -131,7 +139,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         }).
         when('/account', {
             templateUrl: '/partials/account',
-            controller: 'MainCtrl'
+            controller: 'AccountCtrl'
         }).
         otherwise({
             redirectTo: '/app'
@@ -189,10 +197,13 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
   }
 })
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, getUser, navsearch) {
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User, navsearch) {
 
-    getUser.getuser().then(function(response) {
-        $scope.user = response.data;
+    getUser.setuser().then(function(response) {
+        $scope.user = response;
+        $scope.init = {
+            ordervar: 'axihubtime'
+        }
     }).
     then(function() {
         Smart.getfeed($scope.user).then(function(feed) {
@@ -200,23 +211,17 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         });
     });
 
-    $scope.init = {
-        ordervar: 'axihubtime'
-    }
-    
-    // $scope.getSmartFeed = function() {
-    //     Smart.getfeed($scope.user).then(function(feed) {
-    //         $scope.Smart.feed = feed;
-    //     });
-    // }
+    $scope.search = navsearch.search;
+
+})
+
+.controller('AccountCtrl', function ($scope, $window, $location, User) {
+    $scope.user = User.getuser();
 
     $scope.stripdotCom = function(network) {
         var domain = network.split(".");
         return 'auth/' + domain[0];
     }
-
-    $scope.search = navsearch.search;
-
 })
 
 .controller('HeaderController', function ($scope, $location, navsearch) 
