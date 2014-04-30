@@ -44,18 +44,25 @@ nav div.container {
 
 /************	navbar css for small and above ********/
 @media (min-width: 768px) { 
-	.input-group {
-		margin-bottom: 0px;
-	}
-
 	.navbar-form {
 		padding-left: 0px;
 		padding-right: 0px;
 		margin-top: 6px;
 	}
 
+	.search-btn {
+		margin-top: 6px;
+	}
+
 	.search-input {
 		width: 100% !important;
+	}
+
+	.input-group {
+		margin: 0 auto;
+		max-width: 350px;
+		padding-left: 5px;
+		padding-right: 10px;
 	}
 }
 
@@ -120,13 +127,6 @@ body {
 
 .facebook-shared-link-content {
 	margin-left: 80px;
-}
-
-.input-group {
-	margin: 0 auto;
-	max-width: 350px;
-	padding-left: 5px;
-	padding-right: 10px;
 }
 
 footer {
