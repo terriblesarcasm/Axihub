@@ -43,7 +43,7 @@ nav div.container {
 
 
 /************	navbar css for small and above ********/
-@media (min-width: @screen-sm-min) { 
+@media (min-width: 768px) { 
 	.input-group {
 		margin-bottom: 0px;
 	}
