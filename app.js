@@ -211,7 +211,11 @@ function callTwitterApi(req, res, next) {
           console.log(error);
         } else {
           // data contains the data sent by twitter, hopefully the timeline
-          console.log(data);
+          console.log('////////////////////////');
+          console.log('////////////////////////');
+          console.log('////////////////////////');
+          console.log('TWITTER DATA': data);
+
           res.send(data);
         }
       });
