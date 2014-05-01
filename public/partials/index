@@ -4,6 +4,11 @@
       <div class="top">
         <h2>{{ user.name }}'s Smart Feed</h2>    
       </div>
+      <div class='nowloading' ng-if='!Smart.feed'>
+        <div class="post">
+          Now loading your smart feed...
+        </div>
+      </div>
       <div class='smartfeed' ng-if='Smart.feed'>
         <div class="post" ng-animate="'animate'" ng-repeat="post in Smart.feed | orderBy:init.ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
 
