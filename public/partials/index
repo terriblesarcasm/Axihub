@@ -9,7 +9,7 @@
           <center><h3>Now loading your smart feed...</h3></center>
         </div>
       </div>
-      <div class='smartfeed' ng-if='Smart.feed'>
+      <div class='smartfeed'>
         <div class="post" ng-repeat="post in Smart.feed | orderBy:init.ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
 
 
