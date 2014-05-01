@@ -17,7 +17,7 @@ html(data-ng-app='myApp')
 		div(class="container")
 			nav(class="navbar navbar-default", role="navigation", ng-controller="HeaderController")
 				div(class="navbar-header")
-					button(type="button", class="navbar-toggle", ng-init="isCollapsed=true; console.log(isCollapsed);", ng-click="isCollapsed = !isCollapsed")
+					button(type="button", class="navbar-toggle", ng-init="isCollapsed=true", ng-click="isCollapsed = !isCollapsed")
 						span(class="sr-only") Toggle navigation
 						span(class="icon-bar")
 						span(class="icon-bar")
@@ -25,7 +25,7 @@ html(data-ng-app='myApp')
 					a(class="navbar-brand") Axihub
 
 				// This is for the nav links, forms, and other content that will be toggled
-				div(class="collapse navbar-collapse", ng-class="!isCollapsed && 'in'")
+				div(class="collapse navbar-collapse", collapse="isCollapsed")
 					ul(class="nav navbar-nav")
 						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app", ng-click="isCollapsed=true") Feed
 						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account", ng-click="isCollapsed=true") Account
