@@ -6,7 +6,7 @@
       </div>
       <div class='nowloading' ng-if='!Smart.feed'>
         <div class="post">
-          Now loading your smart feed...
+          <center><h3>Now loading your smart feed...</h3></center>
         </div>
       </div>
       <div class='smartfeed' ng-if='Smart.feed'>
