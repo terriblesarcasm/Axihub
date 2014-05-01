@@ -214,7 +214,7 @@ function callTwitterApi(req, res, next) {
           console.log('**************************');
           console.log('**************************');
           console.log('**************************');
-          console.log('TWITTER DATA': data);
+          console.log('TWITTER DATA'+ data);
 
           res.send(data);
         }
