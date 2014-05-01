@@ -275,28 +275,35 @@ footer {
 /************************************
 ********	Animations		*********
 ************************************/
-.animate-enter, 
-.animate-leave
-{ 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: relative;
-    display: block;
-} 
- 
-.animate-enter.animate-enter-active, 
-.animate-leave {
-    opacity: 1;
-    top: 0;
-    height: 30px;
+.post.ng-enter, 
+.post.ng-leave, 
+.post.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  position:relative;
 }
- 
-.animate-leave.animate-leave-active,
-.animate-enter {
-    opacity: 0;
-    top: -50px;
-    height: 0px;
+
+.post.ng-enter {
+  left:-10px;
+  opacity:0;
+}
+.post.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.post.ng-leave {
+  left:0;
+  opacity:1;
+}
+.post.ng-leave.ng-leave-active {
+  left:-10px;
+  opacity:0;
+}
+
+.post.ng-move {
+  opacity:0.5;
+}
+.post.ng-move.ng-move-active {
+  opacity:1;
 }
