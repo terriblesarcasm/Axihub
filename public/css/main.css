@@ -275,46 +275,67 @@ footer {
 /************************************
 ********	Animations		*********
 ************************************/
-.post.ng-enter, 
-.post.ng-leave, 
-.post.ng-move {
-  -webkit-transition: 0.5s linear all;
-  transition: 0.5s linear all;
-  position:relative;
+/*.example-animate-container {
+    background: #ececec;
+    list-style:none;
+    margin:0;
+    padding:0 10px;
+}*/
+
+.post {
+/*    line-height:40px;
+    list-style:none;
+    box-sizing:border-box;
+    border-bottom: 1px solid white;*/
+    -webkit-transition: 1s linear all;
+    transition: 1s linear all;
 }
 
-.post.ng-enter {
-  left:-10px;
-  opacity:0;
-}
-.post.ng-enter.ng-enter-active {
-  left:0;
-  opacity:1;
-}
-
-.post.ng-enter-stagger {
-  /* 200ms will be applied between each sucessive enter operation */ 
-  -webkit-transition-delay:1s;
-  transition-delay:1s;
-
-  /* this is here to avoid accidental CSS inheritance */
-  -webkit-transition-duration:0;
-  transition-duration:0;
-}
-
-
+.post.ng-move,
+.post.ng-enter,
 .post.ng-leave {
-  left:0;
-  opacity:1;
-}
-.post.ng-leave.ng-leave-active {
-  left:-10px;
-  opacity:0;
+    -webkit-transition:all linear 0.1s;
+    transition:all linear 0.1s;
 }
 
-.post.ng-move {
-  opacity:0.5;
+.post.ng-leave.ng-leave-active,
+.post.ng-move,
+.post.ng-enter {
+    opacity:0;
+    max-height:0;
 }
-.post.ng-move.ng-move-active {
-  opacity:1;
+
+.post.ng-leave,
+.post.ng-move.ng-move-active,
+.post.ng-enter.ng-enter-active {
+    opacity:1;
+    max-height:40px;
+}
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.post.ng-leave-stagger {
+    /* this will have a 100ms delay between each successive leave animation */
+    -webkit-transition-delay: 50ms;
+    transition-delay: 50ms;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.post.ng-enter-stagger {
+    /* this will have a 100ms delay between each successive enter animation */
+    -webkit-transition-delay: 50ms;
+    transition-delay: 50ms;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
 }
