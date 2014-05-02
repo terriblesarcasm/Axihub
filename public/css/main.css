@@ -292,17 +292,6 @@ footer {
   opacity:1;
 }
 
-.post.ng-enter-stagger {
-  /* 200ms will be applied between each sucessive enter operation */ 
-  -webkit-transition-delay:0.1s;
-  transition-delay:0.1s;
-
-  /* this is here to avoid accidental CSS inheritance */
-  -webkit-transition-duration:0;
-  transition-duration:0;
-}
-
-
 .post.ng-leave {
   left:0;
   opacity:1;
