@@ -78,16 +78,16 @@ body {
 }
 
 .top, .post {
-	border: 1px solid #999999;
+	border: 1px solid transparent;
 }
 
 .top {
-	background-color: ;
+	background-color: #303030;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	border-top: 1px solid #FFFFFF;
+	border-top: 1px solid transparent;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 	max-width: 960px;
@@ -137,7 +137,7 @@ footer {
 
 .post, .twitter-post, .facebook-post {
 	clear: both;
-	background-color: ;
+	background-color: #303030;
 }
 
 .post {
