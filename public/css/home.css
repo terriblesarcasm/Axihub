@@ -9,6 +9,11 @@ div.title {
 	text-align: center;
 }
 
+.panel {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
 body {
 }
 
