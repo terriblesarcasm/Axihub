@@ -34,7 +34,7 @@ app.configure(function() {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
-  app.use(express.static(__dirname + '../Angular'));
+  app.use(express.static('../Angular'));
 });
 
 // seralize and deseralize
