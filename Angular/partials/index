@@ -1,0 +1,271 @@
+<div class="background">
+  <div class="container">
+    <div class="app">
+      <div class="top">
+        <h2>{{ user.name }}'s Smart Feed</h2>    
+      </div>
+      <div class='nowloading' ng-if='!Smart.feed'>
+        <div class="post">
+          <center><h3>Now loading your smart feed...</h3></center>
+        </div>
+      </div>
+      <div class='smartfeed' ng-if='Smart.feed'>
+        <div class="post" ng-repeat="post in Smart.feed | orderBy:init.ordervar:true | filter:search.term" ng-if="post && post.application.name!='Instagram'">
+
+
+          <div class='twitter-post' ng-if="post.axihubprovider=='twitter.com'">
+            <div class='ribbon ribbon-twitter hidden-xs'>Twitter</div>
+            <div class='mobile-ribbon ribbon-twitter visible-xs'><center><img ng-src='../img/twitter-mobile-ribbon.png'></center></div>
+            <div ng-if="post.retweeted_status">
+              <div class='context'>
+                <div class='retweet-icon'>
+                </div>
+                <div class='twitt-profile-pic' ng-if="post.retweeted_status.user.profile_image_url">
+                  <center><img class='img-rounded profile-image' ng-src="{{post.retweeted_status.user.profile_image_url}}"></center>
+                </div>
+              </div>
+
+              <div class='content'>
+                <div class='retweet-body'>
+                  <p class='retweet muted'><small>Retweeted by: {{post.user.name}} <a ng-href="//www.twitter.com/{{post.user.screen_name}}" target="_blank">@{{post.user.screen_name}}</a></small></p>
+                </div>
+                <div class='tweet-body'>
+                  <p class='item-header'><strong>{{post.retweeted_status.user.name}}</strong> <a ng-href="//www.twitter.com/{{post.retweeted_status.screen_name}}" target="_blank">@{{post.retweeted_status.user.screen_name}}</a></p>
+
+                  <div ng-if="post.retweeted_status.text">
+                    {{ post.retweeted_status.text }}
+                  </div>
+
+                  <div ng-if="post.retweeted_status.entities.media[0]">
+                    <img class="img-responsive" ng-src="{{post.retweeted_status.entities.media[0].media_url}}">
+                  </div>
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+            </div>
+
+            <div ng-if="post.axihubprovider=='twitter.com' && !post.retweeted_status">
+              <div class="context">
+                <center><img class='img-rounded twitter-profile-image' ng-src="{{post.user.profile_image_url}}"></center>
+              </div>
+
+              <div class="content">
+                <div class='tweet-body'>
+                  <p class='item-header'><strong>{{post.user.name}}</strong> <a class='user-link' ng-href="//www.twitter.com/{{post.user.screen_name}}" target="_blank">@{{post.user.screen_name}}</a></p>
+                  
+                   <div ng-if="post.text">
+                    <p class="tweet-text">{{ post.text }}</p>
+                  </div>
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class='facebook-post' ng-if="post.axihubprovider=='facebook.com'">
+            <div class='ribbon ribbon-facebook hidden-xs'>Facebook</div>
+            <div class='mobile-ribbon ribbon-facebook visible-xs'><center><img ng-src='../img/fb-mobile-ribbon.png'></center></div>
+
+            <div class='context'>
+              <img class='img-rounded facebook-profile-image' ng-src='//graph.facebook.com/{{post.from.id}}/picture'>
+            </div>
+
+            <div ng-if='post.type=="photo"'>
+              <div ng-if='!post.story && post.status_type!="shared_story"'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a>
+                  <div ng-if="post.message">
+                    <p class='facebook-message'>{{ post.message }}</p>
+                  </div>
+                  <div ng-if="post.link">
+                    <a ng-href="{{ post.link }}" target="_blank"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+
+              <div ng-if='post.status_type!="shared_story" && post.story'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a>
+                  <div class="facebook-story">
+                    {{ post.story }}
+                  </div>
+                  <div class="facebook-message">
+                    {{ post.message }}
+                  </div>
+                  <div ng-if="post.picture">
+                    <a ng-href="{{post.link}}" target="_blank"><img ng-src="{{post.picture}}"></a>
+                  </div>
+                </div>
+              </div>
+
+              <div ng-if='post.status_type=="shared_story"'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a> shared <a ng-href="//www.facebook.com/{{post.properties[0].href}}" target="_blank">{{post.properties[0].text}}</a>'s <a ng-href="{{post.link}}" target="_blank">photo</a>
+                  <div ng-if="post.caption">
+                    <p class='facebook-caption'>{{ post.caption }}</p>
+                  </div>
+
+                  <div ng-if="post.link">
+                    <a ng-href="{{ post.link }}" target="_blank"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+
+              
+            </div>
+
+            <div ng-if='post.type=="status"'>
+              <div ng-if='post.story'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a>
+                  {{post.story}}
+                  
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+
+              <div ng-if='!post.story'>
+                <div class='content'>
+                  <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a>
+                  <div ng-if="post.link && post.picture">
+                    <a ng-href="{{ post.link }}" target="_blank"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+
+                  <div ng-if="post.message">
+                    <p class='facebook-message'>{{ post.message }}</p>
+                  </div>
+
+                  <footer>
+                    <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                  </footer>
+                </div>
+              </div>
+            </div>
+
+            <div ng-if='post.type=="link"'>
+              <div class='content'>
+                <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a> shared a <a ng-href="{{post.link}}" target="_blank">link</a>
+                {{post.message}}
+                <div ng-if="post.picture">
+                  <div class='facebook-shared-link-picture'>
+                    <a ng-href="{{ post.link }}" target="_blank"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+                  <div class='facebook-shared-link-content'>
+                    <strong>{{post.name}}</strong>
+                    <div class="facebook-caption">
+                      {{post.caption}}
+                    </div>
+                    <div class="facebook-description">
+                      {{post.description}}
+                    </div>
+                  </div>
+                </div>
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </footer>
+              </div>
+            </div>
+
+            <div ng-if='post.type=="video"'>
+              <div class='content'>
+                <a ng-href="//www.facebook.com/{{post.from.id}}" target="_blank">{{ post.from.name }}</a>
+                <div ng-if="post.picture">
+                  <div class='facebook-shared-link-picture'>
+                    <a ng-href="{{ post.link }}" target="_blank"><img class="img-responsive" ng-src="{{ post.picture }}" /></a>
+                  </div>
+                  <div class='facebook-shared-link-content'>
+                    <strong>{{post.name}}</strong>
+                    <div class="facebook-description">
+                      {{post.description}}
+                    </div>
+                  </div>
+                </div>
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </footer>
+              </div>
+            </div>
+          </div>
+
+
+          <div class='linkedin-post' ng-if='post.axihubprovider=="linkedin.com"'>
+            <div class='ribbon ribbon-linkedin hidden-xs'>LinkedIn</div>
+            <div class='mobile-ribbon ribbon-linkedin visible-xs'><center><img ng-src='../img/linkedin-mobile-ribbon.png'></center></div>
+
+            <div ng-if="post.updateType=='JGRP'">
+              <div class='context'>
+                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
+              </div>
+              <div class='content'>
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}" target="_blank">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> joined group <a ng-href="{{post.updateContent.memberGroups.values[0].siteGroupRequest.url}}" target="_blank"> {{ post.updateContent.memberGroups.values[0].name }}</a>
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </footer>
+              </div>
+            </div>
+
+            <div ng-if="post.updateType=='SHAR'">
+              <div class='context'>
+                <div class='linkedin-profile'>
+                  <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.person.pictureUrl}}'>
+                </div>
+              </div>
+
+              <div class='content'>
+                <a ng-href="{{post.updateContent.person.siteStandardProfileRequest.url}}" target="_blank">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> 
+                <div class='comment'>
+                  {{ post.updateContent.person.currentShare.comment }}
+                </div>
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>
+                </footer>
+              </div>
+            </div>
+
+            <div ng-if="post.updateType=='MSFC'">
+              <div class='context'>
+                <img class='img-rounded linkedin-profile-image' ng-src='{{post.updateContent.companyPersonUpdate.person.pictureUrl}}'>
+              </div>
+              <div class='content'>
+                <a ng-href="{{ post.updateContent.companyPersonUpdate.person.siteStandardProfileRequest.url}}" target="_blank">{{ post.updateContent.companyPersonUpdate.person.firstName }} {{ post.updateContent.companyPersonUpdate.person.lastName }}</a> started following {{ post.updateContent.company.name }}
+                <footer>
+                  <p class='muted time'><small>{{ post.axihubtime | dateFilter }}</small></p>              
+                </footer>
+              </div>
+            </div>
+
+            <div ng-if="post.updateType=='VIRL' && post.updateContent.updateAction.action.code == 'LIKE'">
+              <div class='context'>
+                <img class='img-rounded linkedin-profile-image' ng-src='{{ post.updateContent.person.pictureUrl }}'>
+              </div>
+              <div class='content'>
+                <a ng-href="{{ post.updateContent.person.siteStandardProfileRequest.url }}" target="_blank">{{ post.updateContent.person.firstName }} {{ post.updateContent.person.lastName }}</a> likes:
+                <div class='linkedin-originalUpdate'>
+                  <div class='linkedin-originalUpdate-profile-img'>
+                    <img class='img-rounded linkedin-originalUpdate-profile-image' ng-src='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.pictureUrl }}'>
+                  </div>
+                  <div class='linkedin-originalUpdate-content'>
+                    <a ng-href='{{ post.updateContent.updateAction.originalUpdate.updateContent.person.siteStandardProfileRequest.url }}' target="_blank">{{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.firstName }} {{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.author.lastName }}</a> {{ post.updateContent.updateAction.originalUpdate.updateContent.person.currentShare.comment }}
+                  </div>
+              </div>
+          </div>
+          <div class="post-divider"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

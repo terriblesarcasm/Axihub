@@ -1,0 +1,25 @@
+<link href="/css/home.css" rel="stylesheet">
+
+<div class="container">
+	<div class='main' style='min-height: 90%;'>
+		<h4>{{ user.name }}'s accounts</h4>
+
+		<div class='accounts' ng-repeat="account in user.accounts">
+			<strong>{{ account.provider }}</strong>: {{ account.name }}
+		</div>
+		<br>
+		<div class='networks' ng-repeat="network in collection = (user.accounts | accountFilter)">
+			<a ng-href="{{ stripdotCom(network) }}" target="_self"><!-- <img ng-src='/img/connect{{network}}.png'> -->connect to {{network}}</a>
+		</div>
+
+		<!-- <div class='nonetworks' ng-if="!collection.length">
+			You are connected to all available networks.<br>
+		</div> -->
+
+		<img class='img-responsive' ng-src='/img/social_icons.jpg'>
+		<strong>And 50+ More*</strong>
+	</div>
+	<div class='disclaimer'>
+		<small>*coming soon</small>
+	</div>
+</div>
