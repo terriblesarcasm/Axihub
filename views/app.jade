@@ -13,5 +13,28 @@ html(data-ng-app='myApp')
 		script(src='/js/ui-bootstrap-0.10.0.min.js')
 		script(src='/js/angular-animate.min.js')
 
-	body(ng-controller='MainCtrl', ng-init="user=#{JSON.stringify(user)}; ordervar='axihubtime'; filtervar=''")
-	div(ng-view)
+	body
+		div(class="container")
+			nav(class="navbar navbar-default", role="navigation", ng-controller="HeaderController")
+				div(class="navbar-header")
+					button(type="button", class="navbar-toggle", ng-click="isCollapsed = !isCollapsed")
+						span(class="sr-only") Toggle navigation
+						span(class="icon-bar")
+						span(class="icon-bar")
+						span(class="icon-bar")
+					a(class="navbar-brand") Axihub
+
+				// This is for the nav links, forms, and other content that will be toggled
+				div(class="collapse navbar-collapse", collapse="isCollapsed")
+					ul(class="nav navbar-nav")
+						li(ng-class="{ active: isActive('/app')}"): a(ng-href="/app", ng-click="isCollapsed=true") Feed
+						li(ng-class="{ active: isActive('/account')}"): a(ng-href="/account", ng-click="isCollapsed=true") Account
+					div(class='input-group navbar-right')
+						div(class='input-group-btn')
+							button(type="button", class="search-btn btn btn-default dropdown-toggle", data-toggle="dropdown") {{ search.display }} <span class="caret"></span>
+							ul(class="dropdown-menu")
+								li(ng-repeat="choice in dropdown")
+									a(ng-click="search.param=choice.param; search.display=choice.display; search.placeholder=choice.placeholder") {{choice.display}}
+						form(class='navbar-form')
+							input(ng-model='search.term[search.param]', ng-change='setSearch(search)', placeholder='{{search.placeholder}}', name='anim', type="search", class="form-control search-input")
+		div(ng-view)

@@ -1,8 +1,4 @@
 <link href="/css/home.css" rel="stylesheet">
-<h1 class="title">
-	<div class="title">Axihub</div>
-</h1>
-
 
 <div class="container">
 	<div class='main' style='min-height: 90%;'>

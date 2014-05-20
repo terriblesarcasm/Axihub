@@ -1,31 +1,11 @@
-var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap', 'ngAnimate'])
+var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
-.factory('Facebook', function($rootScope, $q) {
+.factory('Facebook', function ($http, $q) {
     return {
-        login: function() {
-            var deferred = $q.defer();
-
-            FB.login(function(response) {
-                deferred.resolve(response.authResponse);
-            });
-
-            return deferred.promise;
-        },
-
-        logout: function() {
-            var deferred = $q.defer();
-
-            FB.logout(function(response) {
-                deferred.resolve(response.authResponse);
-            });
-
-            return deferred.promise;
-        },
-
         getfeed: function() {
             var deferred = $q.defer();
 
-            FB.api('/me/home', function(response) {
+            $http.get('/facebook/api').success(function(response) {
                 deferred.resolve(response.data);
             });
 
@@ -34,6 +14,21 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     }
 })
 
+.factory('User', function ($http) {
+    var user = {};
+
+    return { 
+        setuser: function() {
+            return $http.get('/get/user').then(function(response) {
+                user = response.data;
+                return user;
+            });
+        },
+        getuser: function() {
+            return user;
+        }
+    }
+})
 
 .factory('Twitter', function ($http, $q) {
     return {
@@ -102,8 +97,24 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
     }
 })
 
+.service('navsearch', function() {
+    var myObj = {
+        search:{
+          display: 'Site',
+          param: 'name',
+          term: {},
+          placeholder: 'Search eg. Facebook.com'
+        },
+        setSearch:function(newObj) {
+          angular.copy(newObj,myObj.search)
+          console.log(myObj.search);
+        }
+    }
+    return myObj;
+})
 
-.run(function ($rootScope, Facebook, Twitter, Smart, LinkedIn) {
+
+.run(function ($rootScope, Facebook, Twitter, Smart, LinkedIn, $http) {
     $rootScope.Facebook = Facebook;
     $rootScope.Twitter = Twitter;
     $rootScope.Smart = Smart;
@@ -128,7 +139,7 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
         }).
         when('/account', {
             templateUrl: '/partials/account',
-            controller: 'MainCtrl'
+            controller: 'AccountCtrl'
         }).
         otherwise({
             redirectTo: '/app'
@@ -186,63 +197,62 @@ var app = angular.module('myApp', ['infinite-scroll', 'ngRoute', 'ui.bootstrap',
   }
 })
 
+.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q, User, navsearch) {
 
-.controller('MainCtrl', function ($scope, $window, Twitter, Smart, Facebook, LinkedIn, $location, $q) {
-    
-    $scope.getSmartFeed = function() {
+    User.setuser().then(function(response) {
+       $scope.user = response;
+        $scope.init = {
+            ordervar: 'axihubtime'
+        }
+    }).
+    then(function() {
         Smart.getfeed($scope.user).then(function(feed) {
             $scope.Smart.feed = feed;
         });
-    }
+    });
+
+    $scope.search = navsearch.search;
+
+})
+
+.controller('AccountCtrl', function ($scope, $window, $location, User) {
+    $scope.user = User.getuser();
 
     $scope.stripdotCom = function(network) {
         var domain = network.split(".");
         return 'auth/' + domain[0];
     }
+})
 
-    $scope.getLinkedInFeed = function() {
-        LinkedIn.getfeed().then(function(feed) {
-            console.log(feed);
-            $scope.LinkedIn.feed = feed;
-        });
+.controller('HeaderController', function ($scope, $location, navsearch) 
+{ 
+    $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+
+    $scope.search = {
+        display: 'Site',
+        param: 'axihubprovider',
+        term: {},
+        placeholder: 'Search eg. Facebook.com'
     }
 
     $scope.isCollapsed = true;
-    $scope.search = {
-        display: 'Provider',
-        param: 'axihubprovider',
-        term: {},
-        placeholder: 'e.g. facebook.com'
-    }
+    $scope.setSearch = navsearch.setSearch;
 
     $scope.dropdown = [
         { 
-            display: 'Provider', 
+            display: 'Site', 
             param: 'axihubprovider',
-            placeholder: 'e.g. facebook.com'
+            placeholder: 'Search eg. Facebook.com'
         },
         {
             display: 'Entire Feed',
             param: '$',
-            placeholder: 'e.g. Names, Keywords, etc'
+            placeholder: 'Search everything'
         }
     ]
 });
-
-window.fbAsyncInit = function() {
-    FB.init({
-        appId: '215752608621217'
-    });
-};
-
-// Load the SDK Asynchronously
-(function(d){
-    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    ref.parentNode.insertBefore(js, ref);
-}(document));
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
