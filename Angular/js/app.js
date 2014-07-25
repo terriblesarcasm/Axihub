@@ -71,6 +71,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
             $q.all(promises).then(function(result) {
                 if (result) {
+                    console.log('result: ', result);
                     for(var i = result.length - 1; i >= 0; i--) {
                         for(var j = result[i].length - 1; j >= 0; j--) {
                             if(result[i][j].created_at) {
