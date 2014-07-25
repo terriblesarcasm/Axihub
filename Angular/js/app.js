@@ -70,26 +70,32 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
             };
 
             $q.all(promises).then(function(result) {
-                for(var i = result.length - 1; i >= 0; i--) {
-                    for(var j = result[i].length - 1; j >= 0; j--) {
-                        if(result[i][j].created_at) {
-                            result[i][j].axihubprovider = 'twitter.com';
-                            result[i][j].axihubtime = Date.parse(result[i][j].created_at);
-                            continue;
-                        } else if (result[i][j].created_time) {
-                            result[i][j].axihubprovider = 'facebook.com';
-                            result[i][j].axihubtime = Date.parse(result[i][j].created_time);
-                            continue;
-                        } else if (result[i][j].timestamp) {
-                            result[i][j].axihubprovider = 'linkedin.com';
-                            result[i][j].axihubtime = result[i][j].timestamp;
-                            continue;
+                if (result) {
+                    for(var i = result.length - 1; i >= 0; i--) {
+                        for(var j = result[i].length - 1; j >= 0; j--) {
+                            if(result[i][j].created_at) {
+                                result[i][j].axihubprovider = 'twitter.com';
+                                result[i][j].axihubtime = Date.parse(result[i][j].created_at);
+                                continue;
+                            } else if (result[i][j].created_time) {
+                                result[i][j].axihubprovider = 'facebook.com';
+                                result[i][j].axihubtime = Date.parse(result[i][j].created_time);
+                                continue;
+                            } else if (result[i][j].timestamp) {
+                                result[i][j].axihubprovider = 'linkedin.com';
+                                result[i][j].axihubtime = result[i][j].timestamp;
+                                continue;
+                            }
                         }
-                    }
-                    smartfeed = smartfeed.concat(result[i]);
-                };
-                deferred.resolve(smartfeed);
-                console.log(smartfeed);
+                        smartfeed = smartfeed.concat(result[i]);
+                    };
+                    deferred.resolve(smartfeed);
+                    console.log(smartfeed);
+                } else {
+                    console.log('result is null');
+                    console.log(result);
+                }
+                
             });
 
             return deferred.promise;
